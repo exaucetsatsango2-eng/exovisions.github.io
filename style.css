@@ -82,6 +82,7 @@ body {
 header {
     padding: 1rem 5%;
     background-color: var(--primary-color);
+    backdrop-filter: blur(20px); opacity: (50%);
     position: sticky;
     top: 0;
     z-index: 1000;
