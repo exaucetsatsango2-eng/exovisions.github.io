@@ -16,6 +16,59 @@ html {
     --text-color: #ffffff;
     --accent-color: #ffbb00;
     --gray-text: #2b2929;
+footer {
+    background-color: #3d3126;
+    padding: 40px 5%;
+    text-align: center;
+}
+
+.footer-container {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    align-items: center;
+}
+
+#contact-form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    width: 100%;
+    max-width: 400px;
+    margin: 0 auto;
+}
+
+.whatsapp-box {
+    margin-top: 15px;
+}
+
+.social-media {
+    display: flex;
+    justify-content: center;
+    gap: 1.5rem;
+}
+
+.social-media img {
+    width: 30px; /* Taille fixe pour tes icônes réseaux */
+    height: auto;
+}
+
+.copyright {
+    font-size: 0.8rem;
+    opacity: 0.8;
+}
+
+/* Fix spécifique pour mobile */
+@media screen and (max-width: 600px) {
+    footer {
+        padding: 30px 10px;
+    }
+    
+    .social-media {
+        gap: 1rem;
+    }
+}
+
 }
 
 body {
