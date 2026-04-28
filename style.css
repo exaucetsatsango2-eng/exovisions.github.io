@@ -20,7 +20,7 @@ body {
         }
 header {
             padding: 1.5rem 5%;
-            background-color: var(--primary-color) opacity(50%);
+            background-color: var(--primary-color);
             backdrop-filter: blur(20px);
             position:sticky;
             top:0;
