@@ -1,43 +1,52 @@
 <!DOCTYPE html>
 <html lang="fr-FR">
+<head>
     <meta charset="UTF-8">
-    <meta name="viewport"
-content=width=device-width,
-initial-scale="1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>EXOVISIONS WIN</title>
-    <link rel="stylesheet" 
-href="style.css">
-<header>
+    <link rel="stylesheet" href="style.css">
+</head>
 <body>
-    <div class="header-container">
-        <div class="logo-exovisions">
-            <img src="" alt="">
+    <header>
+        <div class="header-container">
+            <div class="logo-exovisions">
+                <img src="logo.png" alt="Exovisions Logo">
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="#Accueil">Accueil</a></li>
+                    <li><a href="#Projet">Projet</a></li>
+                    <li><a href="#Services">Services</a></li>
+                    <li><a href="#A-propos">A propos</a></li>
+                    <li><a href="#Contact">Contact</a></li>
+                </ul>
+            </nav>
         </div>
-    <nav>
-        <ul>
-            <li><a href="#Accueil">Accueil</a></li>
-            <li><a href="#Projet">Projet</a></li>
-            <li><a href="#Services">Services</a></li>
-            <li><a href="#A propos">A propos</a></li>
-            <li><a href="#Contact">Contact</a></li>
-        </ul>
-    </nav>
-    </div>
-</header>
+    </header>
 
-<main>
+    <main>
         <section id="Accueil">
             <div class="hero">
-            <h1>Bienvenue dans l'univers Exovisions win!</h1>
-            <p>Votre partenaire de confiance pour des solutions visuelles innovantes et percutantes.</p>
-            <a href="#Services" class="btn">Découvrez nos services</a>
+                <h1>Bienvenue dans l'univers Exovisions win !</h1>
+                <p>Votre partenaire de confiance pour des solutions visuelles innovantes et percutantes.</p>
+                <a href="#Services" class="btn">Découvrez nos services</a>
             </div>
         </section>
+
         <section id="Projet">
             <h2 class="section-title">Mes réalisations</h2>
-            <div id="grille-projets" class="card-projet"></div>
+            <div id="grille-projets">
+                <div class="card-projet">
+                    <img src="projet1.jpg" alt="Projet">
+                    <div class="info">
+                        <h3>Design Graphique</h3>
+                        <p>Branding complet pour client premium.</p>
+                    </div>
+                </div>
+            </div>
         </section>
-         <section id="Services">
+
+        <section id="Services">
             <h2>Services</h2>
             <ul>
                 <li>Création de logos & Branding</li>
@@ -46,40 +55,38 @@ href="style.css">
                 <li>Supports de communication visuelle</li>
             </ul>
         </section>
-        <section id="A propos">
+
+        <section id="A-propos">
             <h2>À propos</h2>
-            <ul>
-                <li>En savoir plus sur Exovisions Win et notre mission.</li>
-            </ul>
-             <p>Exovisions Win est une entreprise de design graphique passionnée par la création de solutions visuelles innovantes et percutantes. Notre mission est de transmettre votre message [...]
-             <p>Nous sommes une équipe de designers talentueux et créatifs, dédiés à fournir des services de qualité supérieure pour aider nos clients à se démarquer dans un marché comp[...]
-             <p>Chez Exovisions Win, nous croyons que chaque projet est unique, c'est pourquoi nous travaillons en étroite collaboration avec nos clients pour comprendre leurs besoins spécifique[...]
-             <p>Nous sommes fiers de notre engagement envers l'excellence et la satisfaction du client, et nous nous efforçons constamment d'innover et d'améliorer nos services pour offrir les m[...]
-             <p>Rejoignez-nous dans notre voyage créatif et laissez-nous vous aider à donner vie à vos idées avec des designs qui font la différence!</p>
+            <p>Exovisions Win est une entreprise de design graphique passionnée par la création de solutions visuelles innovantes et percutantes.</p>
+            <p>Nous sommes une équipe de designers talentueux, dédiés à fournir des services de qualité supérieure.</p>
         </section>
-</main> 
-<footer>
-    <div class="footer-container">
-         <section id="Contact">
+
+        <section id="Contact">
             <h2>Contactez-nous</h2>
             <form id="contact-form">
                 <input type="text" name="name" placeholder="Votre nom" required>
                 <input type="email" name="email" placeholder="Votre email" required>
                 <textarea name="message" placeholder="Votre message" required></textarea>
-                <button type="submit">Envoyer</button>
-                <ul>
-                    <a href="https://wa.me/243995800142?text=Bonjour%20Exovisions!%20Je%20souhaite%20obtenir%20plus%20d'informations%20sur vos services." target="_blank" class="whatsapp-btn">Contactez[...]</a>
-                </ul>
+                <button type="submit" class="btn">Envoyer</button>
             </form>
-         </section>
-        <p>&copy;2026 Copyright EXOVISIONS_WIN . Tous droits réservés | Designed by Exovisions</p>
-             <div class="social-media">
-                <a href="https://www.facebook.com/japhet.exauce.1" target="_blank"><img src="1x/facebook.png" alt="Facebook"></a>
-                <a href="https://www.instagram.com/exovisionswin?igsh=MTIxemc4aHI5aGgzMg==" target="_blank"><img src="1x/instagram.png" alt="Instagram"></a>
-                <a href="https://www.whatsapp.com/channel/0029VaRHoxc6rsQmdToKPt3q" target="_blank"><img src="1x/linkedin.png" alt="Chaine Whatsapp"></a>
-             </div>
-    </div>
-</footer>
-<script src="script.js"></script>
+            <div style="margin-top: 20px;">
+                <a href="https://wa.me/243995800142" target="_blank" class="whatsapp-btn">Contactez-nous sur WhatsApp</a>
+            </div>
+        </section>
+    </main> 
+
+    <footer>
+        <div class="footer-container">
+            <p>&copy;2026 Copyright EXOVISIONS_WIN. Tous droits réservés</p>
+            <div class="social-media">
+                <a href="#">FB</a>
+                <a href="#">IG</a>
+                <a href="#">WA</a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
 </body>
 </html>
