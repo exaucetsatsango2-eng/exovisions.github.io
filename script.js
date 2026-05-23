@@ -31,25 +31,18 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     }, 300);
 
-    // ==========================================
-    // 3. GESTION DU FORMULAIRE DE CONTACT
-    // ==========================================
-    const contactForm = document.querySelector(".contact-form");
-    
-    if (contactForm) {
-        contactForm.addEventListener("submit", (e) => {
-            e.preventDefault(); // Bloque le rechargement de la page
-            
-            const name = contactForm.querySelector('input[type="text"]').value;
-            const email = contactForm.querySelector('input[type="email"]').value;
+    // // ==========================================
+// 3. GESTION DU FORMULAIRE DE CONTACT
+// ==========================================
+const contactForm = document.querySelector(".contact-form");
 
-            // Alerte de confirmation
-            alert(`Merci ${name} ! Votre message a bien été envoyé. Nous vous recontacterons rapidement à l'adresse : ${email}.`);
-            
-            contactForm.reset(); // Réinitialise les champs
-        });
-    }
-
+if (contactForm) {
+    contactForm.addEventListener("submit", () => {
+        // On affiche juste un message rapide, le HTML va gérer le reste de l'envoi
+        alert("Préparation de l'envoi de votre message...");
+    });
+}
+
     // ==========================================
     // 4. GESTION DE LA CLASSE ACTIVE SUR LE MENU
     // ==========================================
