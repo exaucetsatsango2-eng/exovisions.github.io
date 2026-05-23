@@ -1,95 +1,137 @@
 <!DOCTYPE html>
-<html lang="fr-FR">
+<html lang="fr">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>EXOVISIONS WIN</title>
+    <title>Exovisions win</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <header>
+
+    <!-- EN-TÊTE (Header) : Logo à gauche, Navigation à droite -->
+    <header class="main-header">
         <div class="header-container">
-            <div class="logo-exovisions">
-                <img src="Fichier 1.png" alt="Exovisions Logo">
+            <div class="logo">
+                <a href="#accueil">
+                    <!-- Remplace "logo.png" par le vrai chemin de ton image (ex: images/logo.png) -->
+                    <img src="img/logo principale copie.png" alt="Exovisions_win" class="logo-img">
+                </a>
             </div>
-            <nav>
+            <nav class="main-nav">
                 <ul>
-                    <li><a href="#Accueil">Accueil</a></li>
-                    <li><a href="#Projet">Projet</a></li>
-                    <li><a href="#Services">Services</a></li>
-                    <li><a href="#A-propos">A propos</a></li>
-                    <li><a href="#Contact">Contact</a></li>
+                    <li><a href="#accueil" class="active">Accueil</a></li>
+                    <li><a href="#projets">Projets</a></li>
+                    <li><a href="#competences">Compétences</a></li>
+                    <li><a href="#contact">Contact</a></li>
                 </ul>
             </nav>
         </div>
     </header>
 
-    <main>
-        <section id="Accueil">
-            <div class="hero">
-                <h1>Bienvenue dans l'univers Exovisions win !</h1>
-                <p>Votre partenaire de confiance pour des solutions visuelles innovantes et percutantes.</p>
-                <a href="#Services" class="btn">Découvrez nos services</a>
-            </div>
-        </section>
-
-        <section id="Projet">
-            <h2 class="section-title">Mes réalisations</h2>
-            <div id="grille-projets">
-                <div class="card-projet">
-                    <img src="projet_logo1.png" alt="Projet">
-                    <div class="info">
-                        <h3>Design Graphique</h3>
-                        <p>Branding complet pour client premium.</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <section id="Services">
-            <h2>Services</h2>
-            <ul>
-                <li>Création de logos & Branding</li>
-                <li>Conception de bannières</li>
-                <li>Design de cartes de visite</li>
-                <li>Supports de communication visuelle</li>
-            </ul>
-        </section>
-
-        <section id="A-propos">
-            <h2>À propos</h2>
-            <p>Exovisions Win est une entreprise de design graphique passionnée par la création de solutions visuelles innovantes et percutantes.</p>
-            <p>Nous sommes une équipe de designers talentueux, dédiés à fournir des services de qualité supérieure.</p>
-        </section>
-        
-    </main> 
-
-    <footer>
-    <div class="footer-container">
-         <section id="Contact">
-            <h2>Contactez-nous</h2>
-            <form id="contact-form">
-                <input type="text" name="name" placeholder="Votre nom" required>
-                <input type="email" name="email" placeholder="Votre email" required>
-                <textarea name="message" placeholder="Votre message" required></textarea>
-                <button type="submit" class="btn">Envoyer</button>
-            </form>
-            <div class="whatsapp-box">
-                <a href="https://wa.me/243995800142?text=Bonjour%20Exovisions!%20Je%20souhaite%20obtenir%20plus%20d'informations%20sur vos services." target="_blank" class="whatsapp-btn">
-                    Contactez-nous sur WhatsApp
-                </a>
-            </div>
-         </section>
-
-        <p class="copyright">&copy;2026 Copyright EXOVISIONS_WIN. Tous droits réservés | Designed by Exovisions</p>
-        
-        <div class="social-media">
-            <a href="https://www.facebook.com/japhet.exauce.1" target="_blank"><img src="1x/facebook.png" alt="Facebook"></a>
-            <a href="https://www.instagram.com/exovisionswin?igsh=MTIxemc4aHI5aGgzMg==" target="_blank"><img src="1x/instagram.png" alt="Instagram"></a>
-            <a href="https://www.whatsapp.com/channel/0029VaRHoxc6rsQmdToKPt3q" target="_blank"><img src="1x/linkedin.png" alt="Chaine"></a>
+    <!-- BANNIÈRE PRINCIPALE (Hero) -->
+    <section id="accueil" class="hero-section">
+        <div class="hero-content">
+            <h2>Créativité & Code</h2>
+            <p>Découvrez mes réalisations, mes compétences et mon univers professionnel.</p>
+            <a href="#projets" class="btn-primary">Voir mes projets</a>
         </div>
+    </section>
+
+    <!-- COEUR DU SITE (Structure Layout style Média) -->
+    <div class="main-layout container">
+        
+        <!-- Colonne Gauche : Grille des réalisations -->
+        <main class="content-area">
+            <section id="projets">
+                <h2 class="section-title">Mes Réalisations</h2>
+                
+                <div class="projects-grid">
+                    <!-- Projet 1 -->
+                    <article class="project-card">
+                        <div class="project-image">
+                            <img src="https://www.behance.net/gallery/242568635/logo-MyShop/400x250" alt="Projet Graphique">
+                        </div>
+                        <div class="project-info">
+                            <span class="category">Design Graphique</span>
+                            <h3>Identité Visuelle - Projet Alpha</h3>
+                            <p>Conception de chartes graphiques modernes et d'identités visuelles percutantes.</p>
+                            <a href="#" class="read-more">En savoir plus →</a>
+                        </div>
+                    </article>
+
+                    <!-- Projet 2 -->
+                    <article class="project-card">
+                        <div class="project-image">
+                            <img src="https://github.com/exaucetsatsango2-eng/exovisions.github.io/400x250" alt="Projet Web">
+                        </div>
+                        <div class="project-info">
+                            <span class="category">Développement Web</span>
+                            <h3>Interface Web Responsive</h3>
+                            <p>Création d'architectures de sites fluides, rapides et adaptées à tous les écrans.</p>
+                            <a href="#" class="read-more">En savoir plus →</a>
+                        </div>
+                    </article>
+                </div>
+            </section>
+        </main>
+
+        <!-- Colonne Droite : Sidebar d'informations -->
+        <aside class="sidebar">
+            <!-- À propos -->
+            <div class="widget widget-about">
+                <h3>À Propos</h3>
+                <p>Designer graphique et développeur, je combine esthétique visuelle et rigueur technique pour donner vie à vos projets numériques.</p>
+            </div>
+
+            <!-- Compétences (Barres dynamiques) -->
+            <div class="widget widget-skills" id="competences">
+                <h3>Compétences</h3>
+                <ul>
+                    <li>
+                        <span>Design Graphique & UI</span>
+                        <div class="bar"><div class="progress" data-width="85%"></div></div>
+                    </li>
+                    <li>
+                        <span>HTML / CSS / JavaScript</span>
+                        <div class="bar"><div class="progress" data-width="90%"></div></div>
+                    </li>
+                    <li>
+                        <span>Python & Logique</span>
+                        <div class="bar"><div class="progress" data-width="75%"></div></div>
+                    </li>
+                </ul>
+            </div>
+        </aside>
     </div>
-</footer>
+
+    <!-- SECTION CONTACT -->
+    <section id="contact" class="contact-section container">
+        <h2 class="section-title">Discutons de votre projet</h2>
+        <!-- Remplace ton_adresse@email.com par ton vrai e-mail -->
+        <form class="contact-form" action="https://formsubmit.co/ton_adresse@email.com" method="POST">
+            <input type="text" placeholder="Votre Nom" required>
+            <input type="email" placeholder="Votre Email" required>
+            <textarea placeholder="Votre Message" rows="5" required></textarea>
+            <button type="submit" class="btn-primary">Envoyer le message</button>
+        </form>
+    </section>
+
+    <!-- PIED DE PAGE -->
+        <!-- PIED DE PAGE (Footer mis à jour) -->
+    <footer class="main-footer">
+        <div class="footer-container">
+            <p>&copy; 2026 Exovisions_win. Tous droits réservés.</p>
+            
+            <!-- Ajout des boutons de réseaux sociaux -->
+            <div class="footer-socials">
+                <a href="https://wa.me/243995800142" target="_blank" class="social-btn whatsapp">WhatsApp</a>
+                <a href="https://facebook.com/https://www.facebook.com/japhet.exauce.1" target="_blank" class="social-btn facebook">Facebook</a>
+                <a href="https://instagram.com/https://www.instagram.com/exovisionswin?igsh=MTIxemc4aHI5aGgzMg==" target="_blank" class="social-btn instagram">Instagram</a>
+                <a href="https://behance.com/https://github.com/exaucetsatsango2-eng" target="_blank" class="social-btn github">GitHub</a>
+            </div>
+        </div>
+    </footer>
+    <!-- Liaison indispensable du JavaScript -->
     <script src="script.js"></script>
 </body>
 </html>
