@@ -74,7 +74,7 @@ body {
 /* 3. Section Hero */
 .hero-section {
     background: linear-gradient(135deg, #375564, #375564, #375564);
-    background-image: url(img/cover2.jpg);
+    background-image: url(cover2.jpg);
     color: #ffffff;
     text-align: center;
     padding: 100px 20px;
