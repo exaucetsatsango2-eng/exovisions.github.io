@@ -103,19 +103,26 @@
             </div>
         </aside>
     </div>
+<!-- SECTION CONTACT MODIFIÉE -->
+<section id="contact" class="contact-section container">
+    <h2 class="section-title">Discutons de votre projet</h2>
+    
+    <!-- Remplacer 'ton-email@gmail.com' par ton vrai email professionnel -->
+    <form class="contact-form" action="https://formsubmit.co/exaucetsatsango2@gmail.com" method="POST">
+        
+        <!-- Redirection personnalisée après l'envoi (Optionnel) -->
+        <input type="hidden" name="_next" value="https://exaucetsatsango2-eng.github.io/exovisions.github.io">
+        
+        <!-- Désactiver le captcha si tu veux éviter le test "Je ne suis pas un robot" (Optionnel) -->
+        <!-- <input type="hidden" name="_captcha" value="false"> -->
 
-    <!-- SECTION CONTACT -->
-    <section id="contact" class="contact-section container">
-        <h2 class="section-title">Discutons de votre projet</h2>
-        <!-- Remplace ton_adresse@email.com par ton vrai e-mail -->
-        <form class="contact-form" action="https://formsubmit.co/exaucetsatsango2@gmail.com" method="POST">
-            <input type="text" placeholder="Votre Nom" required>
-            <input type="email" placeholder="Votre Email" required>
-            <textarea placeholder="Votre Message" rows="5" required></textarea>
-            <button type="submit" class="btn-primary">Envoyer le message</button>
-        </form>
-    </section>
-
+        <input type="text" name="Nom" placeholder="Votre Nom" required>
+        <input type="email" name="Email" placeholder="Votre Email" required>
+        <textarea name="Message" placeholder="Votre Message" rows="5" required></textarea>
+        
+        <button type="submit" class="btn-primary">Envoyer le message</button>
+    </form>
+</section>
     <!-- PIED DE PAGE -->
         <!-- PIED DE PAGE (Footer mis à jour) -->
     <footer class="main-footer">
