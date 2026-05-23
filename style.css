@@ -75,10 +75,6 @@ body {
 .hero-section {
     background: linear-gradient(135deg, #375564, #375564, #375564);
     background-image: url("cover2.jpg");
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-position: center;
-    background-attachment: fixed;
 }
 
     color: #ffffff;
