@@ -3,142 +3,611 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Exovisions win</title>
+    <title>ExoVisions Win | Explorons l'avenir à travers la créativité</title>
     <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;800&display=swap" rel="stylesheet">
 </head>
 <body>
+    <canvas id="ambient-canvas"></canvas>
 
-    <!-- EN-TÊTE (Header) : Logo à gauche, Navigation à droite -->
     <header class="main-header">
-        <div class="header-container">
-            <div class="logo">
-                <a href="#accueil">
-                    <!-- Remplace "logo.png" par le vrai chemin de ton image (ex: images/logo.png) -->
-                    <img src="logo principale copie.png" alt="Exovisions_win" class="logo-img">
-                </a>
-            </div>
-            <nav class="main-nav">
-                <ul>
-                    <li><a href="#accueil" class="active">Accueil</a></li>
-                    <li><a href="#projets">Projets</a></li>
-                    <li><a href="#competences">Compétences</a></li>
-                    <li><a href="#contact">Contact</a></li>
-                </ul>
-            </nav>
+        <div class="logo">Exo<span>Visions Win</span></div>
+        <nav class="nav-links">
+            <a href="#propos" class="nav-link active">À Propos</a>
+            <a href="#solutions" class="nav-link">Œuvre</a>
+            <a href="#innovations" class="nav-link">Services</a>
+            <a href="#clients" class="nav-link">Clients</a>
+            <a href="#partenaires" class="nav-link">Partenaires</a>
+        </nav>
+        <div class="header-cta">
+            <a href="https://wa.me/243995800142?text=Bonjour%20ExoVision%2C%20j%27aimerais%20discuter%20d%27un%20projet" target="_blank" class="btn-primary" onclick="trackWhatsApp('header')">Parlons En</a>
         </div>
     </header>
 
-    <!-- BANNIÈRE PRINCIPALE (Hero) -->
-    <section id="accueil" class="hero-section">
-        <div class="hero-content">
-            <h2>Créativité & Code</h2>
-            <p>Découvrez mes réalisations, mes compétences et mon univers professionnel.</p>
-            <a href="https://www.behance.net/exaucetsatsango" class="btn-primary">Voir mes projets</a>
+    <main class="hero-section">
+        <div class="hero-container">
+            <div class="hero-content">
+                <div class="tagline">
+                    <span class="line"></span> EXOVISIONS WIN
+                </div>
+                <h1 class="hero-title">
+                    Conception <br>
+                    qui <span class="text-gradient">Innove</span> <br>
+                    La réalité.
+                </h1>
+                <p class="hero-description">
+                    Nous créons des identités de marque audacieuses, des visuels accrocheurs et des expériences numériques créatives qui laissent une impression puissante et durable.
+                </p>
+            </div>
+
+            <div class="hero-visual">
+                <div class="mockup-container">
+                    <div class="glow-effect"></div>
+                    <div class="interface-box">
+                        <div class="floating-badge badge-1">UX / UI</div>
+                        <div class="floating-badge badge-2">Branding</div>
+                        <div class="code-preview">
+                            <img src="https://i.pinimg.com/736x/53/37/8e/53378e9eaa74da37f4233c478527f6e4.jpg">
+                            <code>exovision_init();</code>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <section class="stats-section">
+        <div class="stats-container">
+            <div class="actions-wrapper">
+                <a href="#solutions" class="btn-filled">Voir mon travail <span class="arrow">→</span></a>
+                <a href="https://wa.me/243995800142?text=J%27aimerais%20lancer%20un%20projet%20avec%20ExoVision" target="_blank" onclick="trackWhatsApp('cta-primary')" class="btn-outline">Lancer un projet</a>
+            </div>
+
+            <hr class="separator-line">
+
+            <div class="counters-grid">
+                <div class="counter-item">
+                    <h2 class="counter-number" data-target="720">720+</h2>
+                    <p class="counter-label">Projets réalisés</p>
+                </div>
+                <div class="counter-item">
+                    <h2 class="counter-number" data-target="4">4+</h2>
+                    <p class="counter-label">Ans d'expérience</p>
+                </div>
+                <div class="counter-item">
+                    <h2 class="counter-number" data-target="250">250+</h2>
+                    <p class="counter-label">Marques heureuses</p>
+                </div>
+            </div>
         </div>
     </section>
 
-    <!-- COEUR DU SITE (Structure Layout style Média) -->
-    <div class="main-layout container">
-        
-        <!-- Colonne Gauche : Grille des réalisations -->
-        <main class="content-area">
-            <section id="projets">
-                <h2 class="section-title">Mes Réalisations</h2>
-                
-                <div class="projects-grid">
-                    <!-- Projet 1 -->
-                    <article class="project-card">
-                        <div class="project-image">
-                            <img src="projet_logo1.png" alt="Projet Graphique">
-                        </div>
-                        <div class="project-info">
-                            <span class="category">Design Graphique</span>
-                            <h3>Identité Visuelle - EXOVISIONS WIN</h3>
-                            <p>Conception de chartes graphiques modernes et d'identités visuelles percutantes.</p>
-                            <a href="#" class="read-more">En savoir plus →</a>
-                        </div>
-                    </article>
-
-                    <!-- Projet 2 -->
-                    <article class="project-card">
-                        <div class="project-image">
-                            <img src="https://github.com/exaucetsatsango2-eng/exovisions.github.io" alt="Projet Web">
-                        </div>
-                        <div class="project-info">
-                            <span class="category">Développement Web</span>
-                            <h3>Interface Web Responsive</h3>
-                            <p>Création d'architectures de sites fluides, rapides et adaptées à tous les écrans.</p>
-                            <a href="#" class="read-more">En savoir plus →</a>
-                        </div>
-                    </article>
-                </div>
-            </section>
-        </main>
-
-        <!-- Colonne Droite : Sidebar d'informations -->
-        <aside class="sidebar">
-            <!-- À propos -->
-            <div class="widget widget-about">
-                <h3>À Propos</h3>
-                <p>Designer graphique et développeur, je combine esthétique visuelle et rigueur technique pour donner vie à vos projets numériques.</p>
-            </div>
-
-            <!-- Compétences (Barres dynamiques) -->
-            <div class="widget widget-skills" id="competences">
-                <h3>Compétences</h3>
-                <ul>
-                    <li>
-                        <span>Design Graphique & UI</span>
-                        <div class="bar"><div class="progress" data-width="85%"></div></div>
-                    </li>
-                    <li>
-                        <span>HTML / CSS / JavaScript</span>
-                        <div class="bar"><div class="progress" data-width="90%"></div></div>
-                    </li>
-                    <li>
-                        <span>Python & Logique</span>
-                        <div class="bar"><div class="progress" data-width="75%"></div></div>
-                    </li>
-                </ul>
-            </div>
-        </aside>
+    <div class="ticker-wrap">
+        <div class="ticker">
+            <div class="ticker-item">Identité de Marque</div>
+            <div class="ticker-item">Motion Design</div>
+            <div class="ticker-item">Conception UI/UX</div>
+            <div class="ticker-item">Réseaux Sociaux</div>
+            <div class="ticker-item">Visualisation 3D</div>
+            <div class="ticker-item">Impression & Emballage</div>
+            <div class="ticker-item">Conception Web</div>
+            <div class="ticker-item">Identité de Marque</div>
+            <div class="ticker-item">Motion Design</div>
+            <div class="ticker-item">Conception UI/UX</div>
+            <div class="ticker-item">Réseaux Sociaux</div>
+            <div class="ticker-item">Visualisation 3D</div>
+            <div class="ticker-item">Impression & Emballage</div>
+            <div class="ticker-item">Conception Web</div>
+        </div>
     </div>
-<!-- SECTION CONTACT MODIFIÉE -->
-<section id="contact" class="contact-section container">
-    <h2 class="section-title">Discutons de votre projet</h2>
-    
-    <!-- Remplacer 'ton-email@gmail.com' par ton vrai email professionnel -->
-    <form class="contact-form" action="https://formsubmit.co/exaucetsatsango2@gmail.com" method="POST">
-        
-        <!-- Redirection personnalisée après l'envoi (Optionnel) -->
-        <input type="hidden" name="_next" value="https://exaucetsatsango2-eng.github.io/exovisions.github.io">
-        
-        <!-- Désactiver le captcha si tu veux éviter le test "Je ne suis pas un robot" (Optionnel) -->
-        <!-- <input type="hidden" name="_captcha" value="false"> -->
 
-        <input type="text" name="Nom" placeholder="Votre Nom" required>
-        <input type="email" name="Email" placeholder="Votre Email" required>
-        <textarea name="Message" placeholder="Votre Message" rows="5" required></textarea>
-        
-        <button type="submit" class="btn-primary">Envoyer le message</button>
-    </form>
-</section>
-    <!-- PIED DE PAGE -->
-        <!-- PIED DE PAGE (Footer mis à jour) -->
-    <footer class="main-footer">
-        <div class="footer-container">
-            <p>&copy; 2026 Exovisions_win. Tous droits réservés.</p>
-            
-            <!-- Ajout des boutons de réseaux sociaux -->
-            <div class="footer-socials">
-                <a href="https://wa.me/243995800142" target="_blank" class="social-btn whatsapp">WhatsApp</a>
-                <a href="https://facebook.com/https://www.facebook.com/japhet.exauce.1" target="_blank" class="social-btn facebook">Facebook</a>
-                <a href="https://instagram.com/https://www.instagram.com/exovisionswin?igsh=MTIxemc4aHI5aGgzMg==" target="_blank" class="social-btn instagram">Instagram</a>
-                <a href="https://behance.com/https://www.behance.net/exaucetsatsango" target="_blank" class="social-btn github">Behance</a>
+    <section id="propos" class="about-section">
+        <div class="about-container">
+            <div class="about-visual">
+                <div class="photo-frame">
+                    <div class="frame-glow"></div>
+                    <div class="studio-photo-wrapper">
+                        <img src="exo.jpeg">
+                        <div class="photo-overlay"></div>
+                    </div>
+                    <div class="achievement-badge">
+                        <h3>1120+</h3>
+                        <p>Projets achevés</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="about-content">
+                <span class="sub-title">À PROPOS DE EXOVISIONS WIN</span>
+                <h2 class="section-title">Transformer des idées en <span class="accent-text">icônes visuelles</span></h2>
+
+                <div class="bio-text">
+                    <p>
+                        <strong>ExoVisions Win</strong> est une marque de design créatif axée sur la création de visuels audacieux qui laissent une impression durable. Des stratégies de marque intégrales aux architectures numériques immersives, chaque projet est conçu avec précision, énergie et une quête absolue de clarté.
+                    </p>
+                    <p>
+                        Fondée avec une passion pour la convergence entre créativité technique et innovation, ExoVision matérialise les concepts en expériences tangibles qui connectent les marques avec leur audience cible. Nous ne faisons pas que concevoir ; nous bâtissons des identités pérennes qui parlent, bougent et se démarquent.
+                    </p>
+                </div>
+
+                <div class="tools-wrapper">
+                    <span class="tools-title">OUTILS ET EXPERTISE</span>
+                    <div class="tags-container">
+                        <span class="tag">Figma</span>
+                        <span class="tag">Photoshop</span>
+                        <span class="tag">Illustrator</span>
+                        <span class="tag">After Effects</span>
+                        <span class="tag">Blender 3D</span>
+                        <span class="tag">Cinema 4D</span>
+                        <span class="tag">Webflow</span>
+                        <span class="tag">React</span>
+                        <span class="tag">Procreate</span>
+                        <span class="tag">InDesign</span>
+                    </div>
+                </div>
             </div>
         </div>
+    </section>
+
+    <section id="solutions" class="portfolio-section">
+        <div class="portfolio-container">
+            <span class="portfolio-subtitle">ŒUVRES SÉLECTIONNÉES</span>
+            <h2 class="portfolio-title">Projets qui <span class="gradient-text">parlent</span></h2>
+
+            <div class="portfolio-grid">
+                <div class="project-card large">
+                    <div class="card-bg-gradient"></div>
+                    <div class="project-image-wrapper">
+                        <img src="https://images.unsplash.com/photo-1513151233558-d860c5398176?auto=format&fit=crop&w=800&q=80" alt="Créations d'anniversaire et d'événementiel" class="project-img">
+                    </div>
+                    <div class="project-info">
+                        <span class="eng-title">Birthday & Anniversary Flier designs</span>
+                        <h3 class="fr-title">Créations d'anniversaire et d'événementiel</h3>
+                    </div>
+                </div>
+
+                <div class="project-card large">
+                    <div class="card-bg-gradient"></div>
+                    <div class="project-image-wrapper">
+                        <img src="https://images.unsplash.com/photo-1438029071396-1e831a7fa6d8?auto=format&fit=crop&w=800&q=80" alt="Designs de flyers de culte & conférences" class="project-img">
+                    </div>
+                    <div class="project-info">
+                        <span class="eng-title">Church Flier designs</span>
+                        <h3 class="fr-title">Designs de flyers de culte & conférences</h3>
+                    </div>
+                </div>
+
+                <div class="project-card small">
+                    <div class="card-bg-gradient"></div>
+                    <div class="project-image-wrapper">
+                        <img src="https://images.unsplash.com/photo-1611162617213-7d7a39e9b1d7?auto=format&fit=crop&w=600&q=80" alt="Designs des réseaux sociaux" class="project-img">
+                    </div>
+                    <div class="project-info">
+                        <span class="eng-title">Social Media Designs</span>
+                        <h3 class="fr-title">Designs des réseaux sociaux</h3>
+                    </div>
+                </div>
+
+                <div class="project-card small">
+                    <div class="card-bg-gradient"></div>
+                    <div class="project-image-wrapper">
+                        <img src="https://images.unsplash.com/photo-1530587191325-3db32d826c18?auto=format&fit=crop&w=600&q=80" alt="Conceptions d'emballages" class="project-img">
+                    </div>
+                    <div class="project-info">
+                        <span class="eng-title">Packaging Designs</span>
+                        <h3 class="fr-title">Conceptions d'emballages</h3>
+                    </div>
+                </div>
+
+                <div class="project-card small">
+                    <div class="card-bg-gradient"></div>
+                    <div class="project-image-wrapper">
+                        <img src="https://images.unsplash.com/photo-1626785774573-4b799315345d?auto=format&fit=crop&w=600&q=80" alt="Identité de marque & Logotypes" class="project-img">
+                    </div>
+                    <div class="project-info">
+                        <span class="eng-title">Branding Identity</span>
+                        <h3 class="fr-title">Identité de marque & Logotypes</h3>
+                    </div>
+                </div>
+            </div>
+
+            <div class="portfolio-footer">
+                <a href="#solutions" class="btn-portfolio-more">Voir tous les projets <span class="btn-arrow">→</span></a>
+            </div>
+        </div>
+    </section>
+
+    <section id="innovations" class="services-section">
+        <div class="services-container">
+            <span class="services-subtitle">CE QUE NOUS FAISONS</span>
+            <h2 class="services-title">Services conçus pour l'<span class="gradient-accent">impact</span></h2>
+
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="icon-container">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M12 22C17.5228 22 22 17.5228 22 12C22 6.47715 17.5228 2 12 2C6.47715 2 2 6.47715 2 12C2 17.5228 6.47715 22 12 22Z"/>
+                            <path d="M12 16C14.2091 16 16 14.2091 16 12C16 9.79086 14.2091 8 12 8C9.79086 8 8 9.79086 8 12C8 14.2091 9.79086 16 12 16Z"/>
+                        </svg>
+                    </div>
+                    <h3 class="service-card-title">Identité de marque</h3>
+                    <p class="service-card-desc">Logos, directives visuelles, voix de marque, systèmes de couleurs et piles typographiques conçues pour vous différencier dans n'importe quel marché.</p>
+                    <span class="service-tech">— STRATÉGIE À L'ÉXECUTION</span>
+                </div>
+
+                <div class="service-card">
+                    <div class="icon-container">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <rect x="2" y="2" width="20" height="20" rx="5" ry="5"/>
+                            <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/>
+                            <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/>
+                        </svg>
+                    </div>
+                    <h3 class="service-card-title">Conception des réseaux sociaux</h3>
+                    <p class="service-card-desc">Des bibliothèques de modèles personnalisées, des systèmes de contenu récurrent, et des éléments de story/reel optimisés pour chaque algorithme de plateforme.</p>
+                    <span class="service-tech">— IG • FB • LI • X</span>
+                </div>
+
+                <div class="service-card">
+                    <div class="icon-container">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <rect x="2" y="3" width="20" height="14" rx="2" ry="2"/>
+                            <line x1="8" y1="21" x2="16" y2="21"/>
+                            <line x1="12" y1="17" x2="12" y2="21"/>
+                        </svg>
+                    </div>
+                    <h3 class="service-card-title">UI & Conception Web</h3>
+                    <p class="service-card-desc">Prototypes Figma haute fidélité et constructions de production Webflow/Framer. Sombre, immersif et axé sur la conversion utilisateur.</p>
+                    <span class="service-tech">— FIGMA • WEBFLOW</span>
+                </div>
+
+                <div class="service-card">
+                    <div class="icon-container">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
+                            <polyline points="14 2 14 8 20 8"/>
+                            <line x1="16" y1="13" x2="8" y2="13"/>
+                            <line x1="16" y1="17" x2="8" y2="17"/>
+                            <polyline points="10 9 9 9 8 9"/>
+                        </svg>
+                    </div>
+                    <h3 class="service-card-title">Imprimé et flyers</h3>
+                    <p class="service-card-desc">Affiches d'événements, menus, cartes de visite, brochures et présentations — des fichiers prêts à être imprimés avec la précision Pantone.</p>
+                    <span class="service-tech">— CMJN • PRÊT À L'IMPRESSION</span>
+                </div>
+
+                <div class="service-card">
+                    <div class="icon-container">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <polygon points="5 3 19 12 5 21 5 3"/>
+                        </svg>
+                    </div>
+                    <h3 class="service-card-title">Designs de logos</h3>
+                    <p class="service-card-desc">Animations de logos, micro-interactions d'interface, vidéos explicatives After Effects et rendus 3D qui touchent directement les esprits.</p>
+                    <span class="service-tech">— AE • BLENDER • LOTTIE</span>
+                </div>
+
+                <div class="service-card">
+                    <div class="icon-container">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/>
+                        </svg>
+                    </div>
+                    <h3 class="service-card-title">Conception de l'emballage</h3>
+                    <p class="service-card-desc">Création de lignes de découpes, conception structurelle et finitions d'impression premium qui rendent votre produit irrésistible sur l'étagère.</p>
+                    <span class="service-tech">— STRUCTURE • SURFACE</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="clients" class="clients-section">
+        <div class="clients-container">
+            <span class="clients-subtitle">NOS CLIENTS</span>
+            <h2 class="clients-title">Marques qui nous <span class="gradient-text">font confiance</span></h2>
+
+            <div class="clients-grid">
+                <div class="client-logo-card">
+                    <img src="logo/LOGO HÔTEL VYONGE_Plan de travail 1.jpg" alt="Client Logo 1">
+                </div>
+                <div class="client-logo-card">
+                    <img src="logo/LOGO ENDURENCE COMPANY ORIGINAL_Plan de travail 1.jpg" alt="Client Logo 2">
+                </div>
+                <div class="client-logo-card">
+                    <img src="logo/LOGO TRUST IN KNOWLEDGE PROGRAM_Plan de travail 1.jpg" alt="Client Logo 3">
+                </div>
+                <div class="client-logo-card">
+                    <img src="logo/LOGO ELVIS CREATOR ORIGINAL_Plan de travail 1_Plan de travail 1.jpg" alt="Client Logo 4">
+                </div>
+                <div class="client-logo-card">
+                    <img src="logo/COVER_UBUNTU CYBERNET ACADEMY_Plan de travail 1.jpg" alt="Client Logo 5">
+                </div>
+                <div class="client-logo-card">
+                    <img src="logo principale copie.png" alt="Client Logo 6">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="partenaires" class="testimonials-section">
+        <div class="testimonials-container">
+            <span class="testimonials-subtitle">AMOUR DU CLIENT</span>
+            <h2 class="testimonials-title">Ce qu'ils <span class="gradient-text">disent</span></h2>
+
+            <div class="slider-wrapper">
+                <div class="testimonial-card active" data-index="0">
+                    <blockquote class="testimonial-quote">
+                        "ExoVision a complètement transformé notre vision en quelque chose de plus grand que ce que nous imaginions. Les designs étaient épurés, modernes et inoubliables. Notre marque n'a jamais été aussi belle !"
+                    </blockquote>
+                    <div class="client-profile">
+                        <div class="client-avatar">
+                            <img src="https://i.pravatar.cc/150?img=1" alt="Avatar Fritz Zuttah" class="avatar-img">
+                            <div class="avatar-glow"></div>
+                        </div>
+                        <div class="client-info">
+                            <h4 class="client-name">Fritz Zuttah</h4>
+                            <p class="client-role">PDG, Afrique Clothiers</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="testimonial-card" data-index="1">
+                    <blockquote class="testimonial-quote">
+                        "L'équipe a fait preuve d'un professionnalisme rare pour l'identité de notre application. Les interfaces UX/UI conçues sur Figma reflètent parfaitement nos valeurs technologiques. Un travail de niveau international."
+                    </blockquote>
+                    <div class="client-profile">
+                        <div class="client-avatar">
+                            <img src="https://i.pravatar.cc/150?img=5" alt="Avatar Rosalie Ndaya" class="avatar-img">
+                            <div class="avatar-glow"></div>
+                        </div>
+                        <div class="client-info">
+                            <h4 class="client-name">Rosalie Ndaya</h4>
+                            <p class="client-role">Directrice Innovation, TechSolutions</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="testimonial-card" data-index="2">
+                    <blockquote class="testimonial-quote">
+                        "Leurs campagnes pour nos réseaux sociaux et le design de nos emballages ont augmenté notre visibilité de près de 40%. ExoVision combine art visuel et stratégie commerciale avec brio."
+                    </blockquote>
+                    <div class="client-profile">
+                        <div class="client-avatar">
+                            <img src="https://i.pravatar.cc/150?img=9" alt="Avatar Kambale Mwisa" class="avatar-img">
+                            <div class="avatar-glow"></div>
+                        </div>
+                        <div class="client-info">
+                            <h4 class="client-name">Kambale Mwisa</h4>
+                            <p class="client-role">Fondateur, Horizon Agro-Business</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="testimonial-card" data-index="3">
+                    <blockquote class="testimonial-quote">
+                        "Le branding complet que nous avons reçu d'ExoVision a transformé notre présence sur le marché. Chaque détail était soigné et cohérent. Nous recommandons vivement !"
+                    </blockquote>
+                    <div class="client-profile">
+                        <div class="client-avatar">
+                            <img src="https://i.pravatar.cc/150?img=12" alt="Avatar Sarah Mbuyi" class="avatar-img">
+                            <div class="avatar-glow"></div>
+                        </div>
+                        <div class="client-info">
+                            <h4 class="client-name">Sarah Mbuyi</h4>
+                            <p class="client-role">Marketing Manager, Elite Wellness</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="testimonial-card" data-index="4">
+                    <blockquote class="testimonial-quote">
+                        "ExoVision a créé des visuels qui capturent parfaitement notre essence. Leur compréhension des tendances actuelles et des besoins de notre cible était impeccable."
+                    </blockquote>
+                    <div class="client-profile">
+                        <div class="client-avatar">
+                            <img src="https://i.pravatar.cc/150?img=15" alt="Avatar Jean-Pierre Munga" class="avatar-img">
+                            <div class="avatar-glow"></div>
+                        </div>
+                        <div class="client-info">
+                            <h4 class="client-name">Jean-Pierre Munga</h4>
+                            <p class="client-role">Directeur Créatif, Studio Pro Media</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="slider-controls">
+                <button class="control-btn prev-btn" aria-label="Témoignage précédent" onclick="prevTestimonial()">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <line x1="19" y1="12" x2="5" y2="12"></line>
+                        <polyline points="12 19 5 12 12 5"></polyline>
+                    </svg>
+                </button>
+
+                <div class="slider-dots">
+                    <span class="dot active" onclick="goToTestimonial(0)"></span>
+                    <span class="dot" onclick="goToTestimonial(1)"></span>
+                    <span class="dot" onclick="goToTestimonial(2)"></span>
+                    <span class="dot" onclick="goToTestimonial(3)"></span>
+                    <span class="dot" onclick="goToTestimonial(4)"></span>
+                </div>
+
+                <button class="control-btn next-btn" aria-label="Témoignage suivant" onclick="nextTestimonial()">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <line x1="5" y1="12" x2="19" y2="12"></line>
+                        <polyline points="12 5 19 12 12 19"></polyline>
+                    </svg>
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="contact-section">
+        <div class="contact-container">
+            <div class="contact-info-column">
+                <span class="contact-subtitle">CONTACTEZ-NOUS</span>
+                <h2 class="contact-title">Construisons quelque chose de <span class="gradient-text">légendaire</span></h2>
+
+                <p class="contact-desc">
+                    Vous avez un projet en tête ? Que vous ayez besoin d'une refonte complète de la marque ou d'un rapide voyage, nous serions ravis d'en avoir des nouvelles. Créons quelque chose d'inoubliable.
+                </p>
+
+                <div class="info-badges-list">
+                    <div class="info-badge-item">
+                        <div class="badge-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+                        </div>
+                        <a href="mailto:exovisionswin@gmail.com" class="badge-text">exovisionswin@gmail.com</a>
+                    </div>
+
+                    <div class="info-badge-item">
+                        <div class="badge-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+                        </div>
+                        <span class="badge-text">R.D Congo, Butembo</span>
+                    </div>
+
+                    <div class="info-badge-item">
+                        <div class="badge-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+                        </div>
+                        <a href="tel:+243995800142" class="badge-text">+243 995 800 142</a>
+                    </div>
+
+                    <div class="info-badge-item">
+                        <div class="badge-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+                        </div>
+                        <span class="badge-text">Réponse généralement en 24h</span>
+                    </div>
+                </div>
+
+                <div class="contact-socials">
+                    <a href="https://www.instagram.com/exovisionswin?igsh=MTIxemc4aHI5aGgzMg==" target="_blank" class="social-icon-btn" aria-label="Instagram" title="Instagram">IG</a>
+                    <a href="https://www.facebook.com/japhet.exauce.1" target="_blank" class="social-icon-btn" aria-label="Facebook" title="Facebook">FB</a>
+                    <a href="https://vm.tiktok.com/ZS92a7y8dFccn-jrbfV/" target="_blank" class="social-icon-btn" aria-label="TikTok" title="TikTok">TK</a>
+                    <a href="https://wa.me/243995800142" target="_blank" class="social-icon-btn" aria-label="WhatsApp" title="WhatsApp">WA</a>
+                </div>
+            </div>
+
+            <div class="contact-form-column">
+                <form id="exovision-form" class="interactive-form" autocomplete="off" onsubmit="submitForm(event)">
+
+                    <div class="form-row-dual">
+                        <div class="input-group">
+                            <label for="firstname">PRÉNOM</label>
+                            <input type="text" id="firstname" name="firstname" placeholder="Alex" required>
+                        </div>
+                        <div class="input-group">
+                            <label for="lastname">NOM DE FAMILLE</label>
+                            <input type="text" id="lastname" name="lastname" placeholder="Mercer" required>
+                        </div>
+                    </div>
+
+                    <div class="input-group">
+                        <label for="email">ADRESSE E-MAIL</label>
+                        <input type="email" id="email" name="email" placeholder="alex@company.com" required>
+                    </div>
+
+                    <div class="input-group">
+                        <label for="service">SERVICE INTÉRESSÉ</label>
+                        <div class="custom-select-wrapper">
+                            <select id="service" name="service" required>
+                                <option value="" disabled selected hidden>Sélectionnez un service...</option>
+                                <option value="branding">Identité de marque & Logo</option>
+                                <option value="uiux">UI & Conception Web (Figma)</option>
+                                <option value="socialmedia">Conception des réseaux sociaux</option>
+                                <option value="packaging">Conception de l'emballage</option>
+                                <option value="print">Imprimé et flyers</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="input-group">
+                        <label for="message">PARLEZ-NOUS DE VOTRE PROJET</label>
+                        <textarea id="message" name="message" rows="4" placeholder="Décrivez votre projet, votre calendrier et votre budget..." required></textarea>
+                    </div>
+
+                    <button type="submit" class="btn-submit-form" onclick="trackWhatsApp('form')">
+                        <span>ENVOYEZ VIA WHATSAPP</span>
+                        <svg class="submit-whatsapp-icon" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946C.003 5.372 5.378 0 12.026 0c3.219.001 6.247 1.253 8.526 3.535 2.279 2.281 3.53 5.309 3.527 8.532-.003 6.655-5.379 12.028-12.028 12.028-.19 0-.397-.01-.595-.015a11.94 11.94 0 0 1-5.694-1.465L0 24zm6.59-4.846c1.6.95 3.188 1.449 4.825 1.451 5.436 0 9.86-4.42 9.864-9.858.002-2.634-1.024-5.111-2.887-6.978C16.526 1.882 14.053 1.05 11.42 1.05c-5.44 0-9.863 4.42-9.866 9.861a9.815 9.815 0 0 0 1.488 5.165l-.348 1.272.395-.103zm12.912-7.14c-.29-.145-1.711-.845-1.977-.941-.266-.096-.46-.145-.653.145-.193.29-.748.941-.917 1.134-.169.193-.339.217-.629.072-1.306-.653-2.155-1.157-3.003-2.607-.223-.383.223-.356.639-1.187.068-.145.034-.27-.017-.373-.051-.103-.46-1.109-.631-1.52-.166-.401-.349-.347-.48-.354l-.411-.007c-.145 0-.382.054-.58.27-.198.217-.753.736-.753 1.795s.772 2.083.88 2.228c.108.145 1.517 2.316 3.675 3.245.514.221.915.353 1.227.452.517.164.988.141 1.36.085.414-.062 1.711-.699 1.953-1.374.242-.675.242-1.253.169-1.374-.073-.121-.266-.193-.556-.339z"/>
+                        </svg>
+                    </button>
+
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <footer class="main-footer">
+        <div class="footer-content">
+            <p>Designed by <strong>By Elvis Design & ExoVisions Win</strong></p>
+            <p class="copyright">Copyrights © 2026 | ExoVisions Win | Tous droits réservés</p>
+        </div>
     </footer>
-    <!-- Liaison indispensable du JavaScript -->
+
     <script src="script.js"></script>
+    <script>
+        const WHATSAPP_NUMBER = '243995800142';
+        const WHATSAPP_API = `https://wa.me/${WHATSAPP_NUMBER}`;
+
+        function trackWhatsApp(source) {
+            console.log(`WhatsApp clicked from: ${source}`);
+        }
+
+        function submitForm(event) {
+            event.preventDefault();
+            const firstname = document.getElementById('firstname').value;
+            const lastname = document.getElementById('lastname').value;
+            const email = document.getElementById('email').value;
+            const service = document.getElementById('service').value;
+            const message = document.getElementById('message').value;
+
+            const whatsappMessage = `Bonjour ExoVision,%0A%0APrenom: ${firstname}%0ANom: ${lastname}%0AEmail: ${email}%0AService: ${service}%0A%0AProjet:%0A${message}`;
+
+            window.open(`${WHATSAPP_API}?text=${whatsappMessage}`, '_blank');
+            document.getElementById('exovision-form').reset();
+        }
+
+        function nextTestimonial() {
+            rotateTestimonial(1);
+        }
+
+        function prevTestimonial() {
+            rotateTestimonial(-1);
+        }
+
+        function goToTestimonial(index) {
+            const cards = document.querySelectorAll('.testimonial-card');
+            cards.forEach(card => card.classList.remove('active'));
+            const dots = document.querySelectorAll('.dot');
+            dots.forEach(dot => dot.classList.remove('active'));
+
+            cards[index].classList.add('active');
+            dots[index].classList.add('active');
+        }
+
+        function rotateTestimonial(direction) {
+            const cards = document.querySelectorAll('.testimonial-card');
+            const currentActive = Array.from(cards).findIndex(card => card.classList.contains('active'));
+            const nextIndex = (currentActive + direction + cards.length) % cards.length;
+            goToTestimonial(nextIndex);
+        }
+
+        // Smooth scroll for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                const href = this.getAttribute('href');
+                if (href !== '#') {
+                    e.preventDefault();
+                    const target = document.querySelector(href);
+                    if (target) {
+                        target.scrollIntoView({ behavior: 'smooth' });
+                    }
+                }
+            });
+        });
+    </script>
 </body>
 </html>
