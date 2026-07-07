@@ -1,4 +1,6 @@
 (function () {
+  window.exoAuth = window.exoAuth || { mode: 'local' };
+
   const config = {
     adminEmail: 'admin@exovisions.com',
     adminPassword: 'admin2026',
