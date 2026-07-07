@@ -1,53 +1,62 @@
 (function () {
   const config = {
     adminEmail: 'admin@exovisions.com',
-    demoPassword: 'Exo2026!',
-    firebaseConfig: {
-      apiKey: 'AIzaSyBn0fHYCsgcQPdNNUGgU3ti7KhqWOOMbDk',
-      authDomain: 'exovisions-8360a.firebaseapp.com',
-      projectId: 'exovisions-8360a',
-      storageBucket: 'exovisions-8360a.firebasestorage.app',
-      messagingSenderId: '614706658999',
-      appId: '1:614706658999:web:c67e5caa9851ba455c5732',
-      measurementId: 'G-S0FFQ4D4Z4'
-    },
+    adminPassword: 'admin2026',
     loginPage: 'login.html',
     adminPage: 'admin.html'
   };
 
-  const storageKey = 'exo-admin-auth';
-  const noteKey = 'exo-admin-note';
-
-  const isPlaceholderConfig = () => {
-    return !config.firebaseConfig.apiKey || config.firebaseConfig.apiKey.includes('YOUR_');
+  const STORAGE_KEYS = {
+    adminAccount: 'exo-local-admin',
+    session: 'exo-local-session'
   };
 
-  const persistAuth = (user, mode = 'demo') => {
-    localStorage.setItem(storageKey, JSON.stringify({ mode, user }));
+  const ensureAdminAccount = () => {
+    const stored = localStorage.getItem(STORAGE_KEYS.adminAccount);
+    if (stored) {
+      try {
+        const parsed = JSON.parse(stored);
+        if (parsed?.email && parsed?.password) {
+          return parsed;
+        }
+      } catch (error) {
+        console.warn('Invalid local admin account.', error);
+      }
+    }
+
+    const fallbackAccount = {
+      email: config.adminEmail,
+      password: config.adminPassword
+    };
+    localStorage.setItem(STORAGE_KEYS.adminAccount, JSON.stringify(fallbackAccount));
+    return fallbackAccount;
   };
 
-  const clearAuth = () => {
-    localStorage.removeItem(storageKey);
-    localStorage.removeItem(noteKey);
-  };
-
-  const getStoredAuth = () => {
+  const getStoredSession = () => {
     try {
-      return JSON.parse(localStorage.getItem(storageKey) || 'null');
+      return JSON.parse(localStorage.getItem(STORAGE_KEYS.session) || 'null');
     } catch (error) {
       return null;
     }
   };
 
+  const persistSession = (user) => {
+    localStorage.setItem(STORAGE_KEYS.session, JSON.stringify(user));
+    window.dispatchEvent(new Event('exo-auth-changed'));
+  };
+
+  const clearSession = () => {
+    localStorage.removeItem(STORAGE_KEYS.session);
+    window.dispatchEvent(new Event('exo-auth-changed'));
+  };
+
   const getCurrentUser = () => {
-    if (!window.exoAuth) return null;
-    if (window.exoAuth.currentUser) return window.exoAuth.currentUser;
-    if (window.exoAuth.auth?.currentUser) return window.exoAuth.auth.currentUser;
-    return null;
+    return getStoredSession();
   };
 
   const isAdminUser = (user) => {
-    return !!user && user.email?.toLowerCase() === config.adminEmail.toLowerCase();
+    const account = ensureAdminAccount();
+    return !!user && user.email?.toLowerCase() === account.email.toLowerCase();
   };
 
   const getRedirectTarget = () => {
@@ -70,9 +79,7 @@
 
     if (!loginLink || !adminLink || !userPill) return;
 
-    const isAdmin = isAdminUser(user);
-
-    if (isAdmin) {
+    if (isAdminUser(user)) {
       loginLink.hidden = true;
       adminLink.hidden = false;
       userPill.hidden = false;
@@ -88,41 +95,6 @@
       userPill.hidden = true;
       userPill.textContent = '';
     }
-  };
-
-  const initializeFirebase = () => {
-    if (window.exoAuth?.mode === 'firebase' && window.exoAuth.auth) {
-      return true;
-    }
-
-    if (isPlaceholderConfig()) {
-      window.exoAuth = { mode: 'demo' };
-      return false;
-    }
-
-    window.exoAuth = { mode: 'demo' };
-    return false;
-  };
-
-  const handleGoogleLogin = () => {
-    const button = document.getElementById('google-login');
-    if (!button || !window.exoAuth?.signInWithPopup) return;
-
-    button.addEventListener('click', async () => {
-      try {
-        const result = await window.exoAuth.signInWithPopup();
-        const user = result.user;
-        if (isAdminUser(user)) {
-          persistAuth(user, 'firebase');
-          window.location.href = config.adminPage;
-        } else {
-          showInlineMessage('#auth-feedback', 'Ce compte Google n’est pas autorisé à l’administration.', 'error');
-          await window.exoAuth.signOut();
-        }
-      } catch (error) {
-        showInlineMessage('#auth-feedback', error.message || 'Échec de la connexion Google.', 'error');
-      }
-    });
   };
 
   const handleLoginForm = () => {
@@ -144,32 +116,17 @@
       submitButton.textContent = 'Connexion...';
 
       try {
-        if (email.toLowerCase() === config.adminEmail.toLowerCase() && password === config.demoPassword) {
-          const demoUser = { email, uid: 'demo-admin' };
-          window.exoAuth = { ...window.exoAuth, currentUser: demoUser, mode: 'demo' };
-          persistAuth(demoUser, 'demo');
-          const redirectTarget = getRedirectTarget();
-          window.location.href = redirectTarget;
-          return;
+        const account = ensureAdminAccount();
+        const normalizedEmail = email.trim().toLowerCase();
+
+        if (normalizedEmail !== account.email.toLowerCase() || password !== account.password) {
+          throw new Error('Identifiants invalides.');
         }
 
-        if (!window.exoAuth?.auth) {
-          showInlineMessage('#auth-feedback', 'Le mode démo n’est pas disponible pour ce compte. Utilisez Firebase ou le compte demo.', 'error');
-          return;
-        }
-
-        const credential = await window.exoAuth.signInWithEmailAndPassword(email, password);
-        const user = credential.user;
-        const isAdmin = isAdminUser(user);
-
-        if (!isAdmin) {
-          showInlineMessage('#auth-feedback', 'Ce compte n’est pas autorisé à accéder à l’administration.', 'error');
-          await window.exoAuth.signOut();
-          return;
-        }
-
-        const redirectTarget = getRedirectTarget();
-        window.location.href = redirectTarget;
+        const user = { email: account.email, uid: 'local-admin' };
+        persistSession(user);
+        updateNav(user);
+        window.location.href = getRedirectTarget();
       } catch (error) {
         showInlineMessage('#auth-feedback', error.message || 'Échec de la connexion.', 'error');
       } finally {
@@ -187,15 +144,6 @@
     const lockedContent = document.getElementById('locked-content');
     if (!adminContent || !lockedContent) return;
 
-    const storedAuth = getStoredAuth();
-    if (storedAuth?.mode === 'demo' && isAdminUser(storedAuth.user)) {
-      window.exoAuth = { ...window.exoAuth, currentUser: storedAuth.user, mode: 'demo' };
-      adminContent.hidden = false;
-      lockedContent.hidden = true;
-      updateNav(storedAuth.user);
-      return;
-    }
-
     const currentUser = getCurrentUser();
     if (!currentUser) {
       window.location.href = `${config.loginPage}?redirect=${encodeURIComponent(config.adminPage)}`;
@@ -209,23 +157,6 @@
       return;
     }
 
-    if (window.exoAuth?.onAuthStateChanged) {
-      window.exoAuth.onAuthStateChanged((user) => {
-        const resolvedUser = user || currentUser;
-        if (!isAdminUser(resolvedUser)) {
-          adminContent.hidden = true;
-          lockedContent.hidden = false;
-          updateNav(resolvedUser);
-          return;
-        }
-
-        adminContent.hidden = false;
-        lockedContent.hidden = true;
-        updateNav(resolvedUser);
-      });
-      return;
-    }
-
     adminContent.hidden = false;
     lockedContent.hidden = true;
     updateNav(currentUser);
@@ -236,59 +167,23 @@
     if (!logoutButton) return;
 
     logoutButton.addEventListener('click', async () => {
-      clearAuth();
-      if (window.exoAuth?.signOut) {
-        await window.exoAuth.signOut();
-      }
+      clearSession();
       window.location.href = config.loginPage;
     });
   };
 
-  const handleAdminDashboard = () => {
-    const noteInput = document.getElementById('announcement-note');
-    const notePreview = document.getElementById('announcement-preview');
-    const noteForm = document.getElementById('announcement-form');
-
-    if (!noteInput || !notePreview || !noteForm) return;
-
-    const savedNote = localStorage.getItem(noteKey) || 'Aucune note enregistrée.';
-    noteInput.value = savedNote;
-    notePreview.textContent = savedNote;
-
-    noteForm.addEventListener('submit', (event) => {
-      event.preventDefault();
-      const value = noteInput.value.trim();
-      localStorage.setItem(noteKey, value || 'Aucune note enregistrée.');
-      notePreview.textContent = localStorage.getItem(noteKey);
-      showInlineMessage('#admin-feedback', 'Note enregistrée dans votre navigateur.', 'info');
-    });
-  };
-
   document.addEventListener('DOMContentLoaded', () => {
-    const initialized = initializeFirebase();
-    updateNav(null);
+    ensureAdminAccount();
+    const currentUser = getCurrentUser();
+    updateNav(currentUser);
 
-    const storedAuth = getStoredAuth();
-    if (storedAuth?.user && storedAuth.mode === 'demo') {
-      window.exoAuth = { ...window.exoAuth, currentUser: storedAuth.user, mode: 'demo' };
-      updateNav(storedAuth.user);
-    }
-
-    handleLoginForm();
-    handleGoogleLogin();
-    handleLogout();
-    handleAdminDashboard();
-
-    if (!initialized) {
+    if (window.location.pathname.includes('login.html') && currentUser && isAdminUser(currentUser)) {
+      window.location.href = config.adminPage;
       return;
     }
 
-    if (window.exoAuth?.onAuthStateChanged) {
-      window.exoAuth.onAuthStateChanged((user) => {
-        updateNav(user);
-      });
-    }
-
+    handleLoginForm();
+    handleLogout();
     protectAdminPage();
   });
 })();

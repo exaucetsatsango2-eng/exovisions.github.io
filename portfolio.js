@@ -1,21 +1,23 @@
-import {
-  db,
-  collection,
-  getDocs,
-  query,
-  orderBy
-} from './firebase-config.js';
+const STORAGE_KEYS = {
+  projects: 'exo-local-projects'
+};
 
 const container = document.getElementById('portfolio-dynamic-grid');
 
 if (container) {
   container.innerHTML = '<p class="loading-state">Chargement du portfolio…</p>';
 
-  async function loadProjects() {
+  function readProjects() {
     try {
-      const q = query(collection(db, 'projects'), orderBy('createdAt', 'desc'));
-      const snapshot = await getDocs(q);
-      const projects = snapshot.docs.map((docSnap) => ({ id: docSnap.id, ...docSnap.data() }));
+      return JSON.parse(localStorage.getItem(STORAGE_KEYS.projects) || '[]');
+    } catch (error) {
+      return [];
+    }
+  }
+
+  function loadProjects() {
+    try {
+      const projects = readProjects().sort((a, b) => new Date(b.createdAt || 0) - new Date(a.createdAt || 0));
 
       if (!projects.length) {
         container.innerHTML = '<p class="empty-state">Aucun projet publié pour le moment.</p>';
@@ -34,7 +36,7 @@ if (container) {
           </div>
           <div class="project-info">
             <span class="eng-title">${project.title || 'Portfolio'}</span>
-            <h3 class="fr-title">${project.description || 'Projet mis à jour via Firebase'}</h3>
+            <h3 class="fr-title">${project.description || 'Projet ajouté localement'}</h3>
           </div>
         `;
         container.appendChild(card);

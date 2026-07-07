@@ -27,7 +27,7 @@
         <div>
           <p class="auth-kicker">ZONE ADMINISTRATEUR</p>
           <h1>Bienvenue, administrateur</h1>
-          <p class="auth-copy">Gérez vos visuels, gérez le contenu et gardez la direction artistique alignée.</p>
+          <p class="auth-copy">Gérez vos visuels et votre contenu depuis une base locale simple et rapide.</p>
         </div>
         <button id="logout-button" class="btn-primary" type="button">Déconnexion</button>
       </div>
@@ -47,7 +47,7 @@
 
             <button type="submit" class="btn-primary">Publier</button>
           </form>
-          <p id="admin-status" class="auth-message info">Prêt à téléverser.</p>
+          <p id="admin-status" class="auth-message info">Prêt à enregistrer localement.</p>
         </section>
 
         <section class="admin-panel" aria-labelledby="content-title">
@@ -66,42 +66,7 @@
   </main>
 
   <script type="module">
-    import { initializeApp } from 'https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js';
-    import { getAnalytics } from 'https://www.gstatic.com/firebasejs/10.12.2/firebase-analytics.js';
-    import { getAuth, GoogleAuthProvider, signInWithPopup, signInWithEmailAndPassword, onAuthStateChanged, signOut } from 'https://www.gstatic.com/firebasejs/10.12.2/firebase-auth.js';
     import { initAdminDashboard } from './admin-app.js';
-
-    const firebaseConfig = {
-      apiKey: 'AIzaSyBn0fHYCsgcQPdNNUGgU3ti7KhqWOOMbDk',
-      authDomain: 'exovisions-8360a.firebaseapp.com',
-      projectId: 'exovisions-8360a',
-      storageBucket: 'exovisions-8360a.firebasestorage.app',
-      messagingSenderId: '614706658999',
-      appId: '1:614706658999:web:c67e5caa9851ba455c5732',
-      measurementId: 'G-S0FFQ4D4Z4'
-    };
-
-    const app = initializeApp(firebaseConfig);
-    getAnalytics(app);
-    const auth = getAuth(app);
-    const provider = new GoogleAuthProvider();
-    provider.setCustomParameters({ prompt: 'select_account' });
-
-    window.exoAuth = {
-      app,
-      auth,
-      mode: 'firebase',
-      currentUser: auth.currentUser,
-      signInWithPopup: () => signInWithPopup(auth, provider),
-      signInWithEmailAndPassword: (email, password) => signInWithEmailAndPassword(auth, email, password),
-      signOut: () => signOut(auth),
-      onAuthStateChanged: (callback) => onAuthStateChanged(auth, callback)
-    };
-
-    window.exoAuth.onAuthStateChanged((user) => {
-      window.exoAuth.currentUser = user;
-    });
-
     initAdminDashboard();
   </script>
 </body>

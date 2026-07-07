@@ -1,25 +1,52 @@
-import {
-  db,
-  storage,
-  collection,
-  addDoc,
-  getDocs,
-  query,
-  orderBy,
-  deleteDoc,
-  doc,
-  ref,
-  uploadBytes,
-  getDownloadURL,
-  deleteObject,
-  serverTimestamp
-} from './firebase-config.js';
 import { isAdminUser, getCurrentUser, logout, onAuthChange } from './auth.js';
+
+const STORAGE_KEYS = {
+  projects: 'exo-local-projects'
+};
 
 const state = {
   projects: [],
   eventsBound: false
 };
+
+function readProjects() {
+  try {
+    return JSON.parse(localStorage.getItem(STORAGE_KEYS.projects) || '[]');
+  } catch (error) {
+    return [];
+  }
+}
+
+function writeProjects(projects) {
+  localStorage.setItem(STORAGE_KEYS.projects, JSON.stringify(projects));
+}
+
+function ensureSeedProjects() {
+  const projects = readProjects();
+  if (!projects.length) {
+    const seedProjects = [
+      {
+        id: 'seed-1',
+        title: 'Branding ExoVisions',
+        description: 'Une identité visuelle pensée pour un lancement premium.',
+        imageUrl: 'https://images.unsplash.com/photo-1516321497487-e288fb19713f?auto=format&fit=crop&w=900&q=80',
+        createdAt: new Date().toISOString()
+      }
+    ];
+    writeProjects(seedProjects);
+    return seedProjects;
+  }
+  return projects;
+}
+
+function fileToDataUrl(file) {
+  return new Promise((resolve, reject) => {
+    const reader = new FileReader();
+    reader.onload = () => resolve(reader.result);
+    reader.onerror = () => reject(new Error('Impossible de lire l’image.'));
+    reader.readAsDataURL(file);
+  });
+}
 
 export async function initAdminDashboard() {
   const currentUser = getCurrentUser();
@@ -99,10 +126,8 @@ async function loadProjects() {
   const list = document.getElementById('project-list');
   if (!list) return;
 
-  const q = query(collection(db, 'projects'), orderBy('createdAt', 'desc'));
-  const snapshot = await getDocs(q);
-  state.projects = snapshot.docs.map((docSnap) => ({ id: docSnap.id, ...docSnap.data() }));
-
+  ensureSeedProjects();
+  state.projects = readProjects().sort((a, b) => new Date(b.createdAt || 0) - new Date(a.createdAt || 0));
   list.innerHTML = '';
 
   if (!state.projects.length) {
@@ -118,7 +143,7 @@ async function loadProjects() {
       <div>
         <strong>${project.title || 'Projet sans titre'}</strong>
         <p>${project.description || ''}</p>
-        <button class="btn-danger" data-id="${project.id}" data-image="${project.imagePath || ''}">Supprimer</button>
+        <button class="btn-danger" data-id="${project.id}">Supprimer</button>
       </div>
     `;
     list.appendChild(item);
@@ -153,22 +178,25 @@ function bindEvents() {
 
       status.textContent = 'Téléversement en cours...';
 
-      const storageRef = ref(storage, `projects/${Date.now()}-${file.name}`);
-      const snapshot = await uploadBytes(storageRef, file);
-      const imageUrl = await getDownloadURL(snapshot.ref);
+      try {
+        const imageUrl = await fileToDataUrl(file);
+        const project = {
+          id: `project-${Date.now()}`,
+          title,
+          description,
+          imageUrl,
+          createdAt: new Date().toISOString(),
+          owner: user.uid
+        };
 
-      await addDoc(collection(db, 'projects'), {
-        title,
-        description,
-        imageUrl,
-        imagePath: snapshot.ref.fullPath,
-        owner: user.uid,
-        createdAt: serverTimestamp()
-      });
-
-      form.reset();
-      status.textContent = 'Photo ajoutée avec succès.';
-      await loadProjects();
+        const projects = [project, ...readProjects()];
+        writeProjects(projects);
+        form.reset();
+        status.textContent = 'Photo ajoutée avec succès.';
+        await loadProjects();
+      } catch (error) {
+        status.textContent = error.message || 'Erreur lors du téléversement.';
+      }
     });
   }
 
@@ -177,19 +205,13 @@ function bindEvents() {
       const button = event.target.closest('button[data-id]');
       if (!button) return;
 
-      const { id, image } = button.dataset;
+      const { id } = button.dataset;
       if (!confirm('Supprimer cette entrée ?')) return;
 
-      try {
-        if (image) {
-          await deleteObject(ref(storage, image));
-        }
-        await deleteDoc(doc(db, 'projects', id));
-        status.textContent = 'Entrée supprimée.';
-        await loadProjects();
-      } catch (error) {
-        status.textContent = 'Erreur lors de la suppression.';
-      }
+      const projects = readProjects().filter((project) => project.id !== id);
+      writeProjects(projects);
+      status.textContent = 'Entrée supprimée.';
+      await loadProjects();
     });
   }
 
