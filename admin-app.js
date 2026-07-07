@@ -1,3 +1,13 @@
+import {
+  db,
+  collection,
+  addDoc,
+  getDocs,
+  query,
+  orderBy,
+  deleteDoc,
+  doc
+} from './firebase-config.js';
 import { isAdminUser, getCurrentUser, logout, onAuthChange } from './auth.js';
 
 const STORAGE_KEYS = {
@@ -21,22 +31,15 @@ function writeProjects(projects) {
   localStorage.setItem(STORAGE_KEYS.projects, JSON.stringify(projects));
 }
 
-function ensureSeedProjects() {
-  const projects = readProjects();
-  if (!projects.length) {
-    const seedProjects = [
-      {
-        id: 'seed-1',
-        title: 'Branding ExoVisions',
-        description: 'Une identité visuelle pensée pour un lancement premium.',
-        imageUrl: 'https://images.unsplash.com/photo-1516321497487-e288fb19713f?auto=format&fit=crop&w=900&q=80',
-        createdAt: new Date().toISOString()
-      }
-    ];
-    writeProjects(seedProjects);
-    return seedProjects;
-  }
-  return projects;
+function toProject(item) {
+  return {
+    id: item.id,
+    title: item.title || 'Projet',
+    description: item.description || '',
+    imageUrl: item.imageUrl || '',
+    createdAt: item.createdAt || new Date().toISOString(),
+    owner: item.owner || 'local'
+  };
 }
 
 function fileToDataUrl(file) {
@@ -46,6 +49,42 @@ function fileToDataUrl(file) {
     reader.onerror = () => reject(new Error('Impossible de lire l’image.'));
     reader.readAsDataURL(file);
   });
+}
+
+async function loadProjectsFromRemote() {
+  try {
+    const q = query(collection(db, 'projects'), orderBy('createdAt', 'desc'));
+    const snapshot = await getDocs(q);
+    const projects = snapshot.docs.map((docSnap) => toProject({ id: docSnap.id, ...docSnap.data() }));
+    if (projects.length) {
+      writeProjects(projects);
+      return projects;
+    }
+  } catch (error) {
+    console.warn('Remote project loading failed; using local data instead.', error);
+  }
+
+  return readProjects();
+}
+
+async function saveProjectToRemote(project) {
+  try {
+    const docRef = await addDoc(collection(db, 'projects'), project);
+    return { id: docRef.id, ...project };
+  } catch (error) {
+    console.warn('Remote save failed; saving locally instead.', error);
+    return project;
+  }
+}
+
+async function deleteProjectFromRemote(id) {
+  try {
+    await deleteDoc(doc(db, 'projects', id));
+    return true;
+  } catch (error) {
+    console.warn('Remote delete failed.', error);
+    return false;
+  }
 }
 
 export async function initAdminDashboard() {
@@ -126,8 +165,8 @@ async function loadProjects() {
   const list = document.getElementById('project-list');
   if (!list) return;
 
-  ensureSeedProjects();
-  state.projects = readProjects().sort((a, b) => new Date(b.createdAt || 0) - new Date(a.createdAt || 0));
+  const projects = await loadProjectsFromRemote();
+  state.projects = projects.sort((a, b) => new Date(b.createdAt || 0) - new Date(a.createdAt || 0));
   list.innerHTML = '';
 
   if (!state.projects.length) {
@@ -176,12 +215,11 @@ function bindEvents() {
 
       if (!user) return;
 
-      status.textContent = 'Téléversement en cours...';
+      status.textContent = 'Publication en cours...';
 
       try {
         const imageUrl = await fileToDataUrl(file);
         const project = {
-          id: `project-${Date.now()}`,
           title,
           description,
           imageUrl,
@@ -189,10 +227,11 @@ function bindEvents() {
           owner: user.uid
         };
 
-        const projects = [project, ...readProjects()];
+        const savedProject = await saveProjectToRemote(project);
+        const projects = [toProject(savedProject), ...readProjects().filter((item) => item.id !== savedProject.id)];
         writeProjects(projects);
         form.reset();
-        status.textContent = 'Photo ajoutée avec succès.';
+        status.textContent = 'Photo publiée en ligne.';
         await loadProjects();
       } catch (error) {
         status.textContent = error.message || 'Erreur lors du téléversement.';
@@ -208,10 +247,15 @@ function bindEvents() {
       const { id } = button.dataset;
       if (!confirm('Supprimer cette entrée ?')) return;
 
-      const projects = readProjects().filter((project) => project.id !== id);
-      writeProjects(projects);
-      status.textContent = 'Entrée supprimée.';
-      await loadProjects();
+      const removed = await deleteProjectFromRemote(id);
+      if (removed) {
+        const projects = readProjects().filter((project) => project.id !== id);
+        writeProjects(projects);
+        status.textContent = 'Entrée supprimée en ligne.';
+        await loadProjects();
+      } else {
+        status.textContent = 'Suppression locale seulement.';
+      }
     });
   }
 
