@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Connexion · ExoVisions</title>
+  <link rel="stylesheet" href="style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;800&display=swap" rel="stylesheet" />
+</head>
+<body>
+  <header class="main-header">
+    <a href="index.html" class="logo" style="text-decoration:none;color:inherit;">Exo<span>Visions Win</span></a>
+    <nav class="nav-links">
+      <a href="index.html" class="nav-link">Accueil</a>
+      <a id="admin-link" href="admin.html" class="nav-link" hidden>Admin</a>
+      <a id="login-link" href="login.html" class="nav-link active">Connexion</a>
+      <span id="user-pill" class="user-pill" hidden></span>
+    </nav>
+    <div class="header-cta">
+      <a href="index.html" class="btn-primary">Retour</a>
+    </div>
+  </header>
+
+  <main class="auth-shell">
+    <section class="auth-card">
+      <p class="auth-kicker">ESPACE ADMINISTRATEUR</p>
+      <h1>Connexion sécurisée</h1>
+      <p class="auth-copy">Accédez à la zone réservée aux administrateurs autorisés.</p>
+
+      <form id="login-form" class="auth-form" aria-label="Formulaire de connexion admin">
+        <label for="email">Email</label>
+        <input id="email" name="email" type="email" placeholder="admin@exovisions.com" aria-label="Adresse email" required />
+
+        <label for="password">Mot de passe</label>
+        <input id="password" name="password" type="password" placeholder="••••••••" aria-label="Mot de passe" required />
+
+        <button type="submit" class="btn-primary">Se connecter</button>
+      </form>
+
+      <button id="google-login" class="btn-primary" type="button" aria-label="Se connecter avec Google">Continuer avec Google</button>
+      <p class="auth-hint">Mode démo : admin@exovisions.com / Exo2026!</p>
+      <p id="auth-feedback" class="auth-message">Utilisez un compte administrateur autorisé.</p>
+    </section>
+  </main>
+
+  <script type="module">
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
+    import { getAnalytics } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-analytics.js";
+    import { getAuth, GoogleAuthProvider, signInWithPopup, signInWithEmailAndPassword, onAuthStateChanged, signOut } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-auth.js";
+
+    // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+    const firebaseConfig = {
+      apiKey: "AIzaSyBn0fHYCsgcQPdNNUGgU3ti7KhqWOOMbDk",
+      authDomain: "exovisions-8360a.firebaseapp.com",
+      projectId: "exovisions-8360a",
+      storageBucket: "exovisions-8360a.firebasestorage.app",
+      messagingSenderId: "614706658999",
+      appId: "1:614706658999:web:c67e5caa9851ba455c5732",
+      measurementId: "G-S0FFQ4D4Z4"
+    };
+
+    const app = initializeApp(firebaseConfig);
+    const analytics = getAnalytics(app);
+    const auth = getAuth(app);
+    const provider = new GoogleAuthProvider();
+    provider.setCustomParameters({ prompt: 'select_account' });
+
+    window.exoAuth = {
+      app,
+      auth,
+      mode: "firebase",
+      currentUser: auth.currentUser,
+      signInWithPopup: () => signInWithPopup(auth, provider),
+      signInWithEmailAndPassword: (email, password) => signInWithEmailAndPassword(auth, email, password),
+      signOut: () => signOut(auth),
+      onAuthStateChanged: (callback) => onAuthStateChanged(auth, callback)
+    };
+
+    window.exoAuth.onAuthStateChanged((user) => {
+      window.exoAuth.currentUser = user;
+    });
+  </script>
+  <script src="script.js"></script>
+</body>
+</html>

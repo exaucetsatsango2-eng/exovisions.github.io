@@ -27,6 +27,9 @@
             <a href="#innovations" class="nav-link">Services</a>
             <a href="#clients" class="nav-link">Clients</a>
             <a href="#partenaires" class="nav-link">Partenaires</a>
+            <a id="admin-link" href="admin.html" class="nav-link" hidden>Admin</a>
+            <a id="login-link" href="login.html" class="nav-link">Connexion</a>
+            <span id="user-pill" class="user-pill" hidden></span>
         </nav>
         <div class="header-cta">
             <a href="https://wa.me/243995800142?text=Bonjour%20ExoVision%2C%20j%27aimerais%20discuter%20d%27un%20projet" target="_blank" class="btn-primary" onclick="trackWhatsApp('header')">Parlons En</a>
@@ -163,62 +166,7 @@
             <span class="portfolio-subtitle">ŒUVRES SÉLECTIONNÉES</span>
             <h2 class="portfolio-title">Projets qui <span class="gradient-text">parlent</span></h2>
 
-            <div class="portfolio-grid">
-                <div class="project-card large">
-                    <div class="card-bg-gradient"></div>
-                    <div class="project-image-wrapper">
-                        <img src="https://images.unsplash.com/photo-1513151233558-d860c5398176?auto=format&fit=crop&w=800&q=80" alt="Créations d'anniversaire et d'événementiel" class="project-img">
-                    </div>
-                    <div class="project-info">
-                        <span class="eng-title">Birthday & Anniversary Flier designs</span>
-                        <h3 class="fr-title">Créations d'anniversaire et d'événementiel</h3>
-                    </div>
-                </div>
-
-                <div class="project-card large">
-                    <div class="card-bg-gradient"></div>
-                    <div class="project-image-wrapper">
-                        <img src="https://images.unsplash.com/photo-1438029071396-1e831a7fa6d8?auto=format&fit=crop&w=800&q=80" alt="Designs de flyers de culte & conférences" class="project-img">
-                    </div>
-                    <div class="project-info">
-                        <span class="eng-title">Church Flier designs</span>
-                        <h3 class="fr-title">Designs de flyers de culte & conférences</h3>
-                    </div>
-                </div>
-
-                <div class="project-card small">
-                    <div class="card-bg-gradient"></div>
-                    <div class="project-image-wrapper">
-                        <img src="https://images.unsplash.com/photo-1611162617213-7d7a39e9b1d7?auto=format&fit=crop&w=600&q=80" alt="Designs des réseaux sociaux" class="project-img">
-                    </div>
-                    <div class="project-info">
-                        <span class="eng-title">Social Media Designs</span>
-                        <h3 class="fr-title">Designs des réseaux sociaux</h3>
-                    </div>
-                </div>
-
-                <div class="project-card small">
-                    <div class="card-bg-gradient"></div>
-                    <div class="project-image-wrapper">
-                        <img src="https://images.unsplash.com/photo-1530587191325-3db32d826c18?auto=format&fit=crop&w=600&q=80" alt="Conceptions d'emballages" class="project-img">
-                    </div>
-                    <div class="project-info">
-                        <span class="eng-title">Packaging Designs</span>
-                        <h3 class="fr-title">Conceptions d'emballages</h3>
-                    </div>
-                </div>
-
-                <div class="project-card small">
-                    <div class="card-bg-gradient"></div>
-                    <div class="project-image-wrapper">
-                        <img src="https://images.unsplash.com/photo-1626785774573-4b799315345d?auto=format&fit=crop&w=600&q=80" alt="Identité de marque & Logotypes" class="project-img">
-                    </div>
-                    <div class="project-info">
-                        <span class="eng-title">Branding Identity</span>
-                        <h3 class="fr-title">Identité de marque & Logotypes</h3>
-                    </div>
-                </div>
-            </div>
+            <div id="portfolio-dynamic-grid" class="portfolio-grid" aria-live="polite"></div>
 
             <div class="portfolio-footer">
                 <a href="#solutions" class="btn-portfolio-more">Voir tous les projets <span class="btn-arrow">→</span></a>
@@ -556,6 +504,7 @@
         </div>
     </footer>
 
+    <script type="module" src="portfolio.js"></script>
     <script src="script.js"></script>
     <script>
         const WHATSAPP_NUMBER = '243995800142';
