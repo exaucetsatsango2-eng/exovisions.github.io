@@ -1,0 +1,22 @@
+[
+  {
+    "title": "Branding & identité",
+    "category": "Strategy",
+    "description": "Logos, chartes graphiques, systèmes de marque et directions éditoriales cohérentes."
+  },
+  {
+    "title": "UI/UX premium",
+    "category": "Digital",
+    "description": "Interfaces élégantes, parcours utilisateur fluides et maquettes prêtes pour le développement."
+  },
+  {
+    "title": "Motion & contenu",
+    "category": "Motion",
+    "description": "Animations, cinématiques, courts formats et supports de communication visuelle."
+  },
+  {
+    "title": "Packaging & print",
+    "category": "Production",
+    "description": "Étiquettes, emballages, supports imprimés et mises en page prêtes à produire."
+  }
+]

@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Contact — Exovisions</title>
+    <meta name="description" content="Écrivez à Exovisions pour démarrer votre prochain projet de design premium." />
+    <link rel="stylesheet" href="../assets/css/main.css" />
+  </head>
+  <body data-theme="dark">
+    <div class="page-shell">
+      <header class="site-header">
+        <a href="../index.html" class="brand">Exovisions</a>
+        <nav class="site-nav">
+          <a href="../index.html" class="nav-link">Accueil</a>
+          <a href="about.html" class="nav-link">À propos</a>
+          <a href="services.html" class="nav-link">Services</a>
+          <a href="portfolio.html" class="nav-link">Portfolio</a>
+          <a href="cases.html" class="nav-link">Études de cas</a>
+          <a href="blog.html" class="nav-link">Blog</a>
+          <a href="contact.html" class="nav-link active">Contact</a>
+          <a href="admin.html" class="nav-link">Admin</a>
+        </nav>
+        <div class="header-actions">
+          <button class="theme-toggle" aria-label="Changer le thème">☼</button>
+          <a class="button button-primary" href="contact.html">Démarrer un projet</a>
+        </div>
+      </header>
+      <main>
+        <section class="section">
+          <div class="section-heading">
+            <p class="eyebrow">Contact</p>
+            <h2>Prêt à lancer votre prochain chapitre visuel ?</h2>
+            <p>Parlez-nous de votre marque, de votre ambition et de votre calendrier.</p>
+          </div>
+          <div class="form-grid">
+            <div class="form-card">
+              <form id="admin-form">
+                <div class="input-group">
+                  <label for="name">Nom</label>
+                  <input id="name" name="name" required />
+                </div>
+                <div class="input-group">
+                  <label for="email">Email</label>
+                  <input id="email" name="email" type="email" required />
+                </div>
+                <div class="input-group">
+                  <label for="service">Service</label>
+                  <select id="service" name="service">
+                    <option>Branding</option>
+                    <option>UI/UX</option>
+                    <option>Motion</option>
+                    <option>Packaging</option>
+                  </select>
+                </div>
+                <div class="input-group">
+                  <label for="message">Projet</label>
+                  <textarea id="message" name="message" rows="5" required></textarea>
+                </div>
+                <button class="button button-primary" type="submit">Envoyer la demande</button>
+              </form>
+            </div>
+            <div class="form-card">
+              <h3>Coordonnées</h3>
+              <p>Email : exovisionswin@gmail.com</p>
+              <p>Téléphone : +243 995 800 142</p>
+              <p>Localisation : Butembo, République Démocratique du Congo</p>
+              <p>Réponse en moins de 24h.</p>
+            </div>
+          </div>
+        </section>
+      </main>
+      <footer class="site-footer">
+        <div><strong>Exovisions</strong><p>Design premium, stratégie visuelle et exécution efficace.</p></div>
+        <div class="footer-links"><a href="privacy.html">Politique de confidentialité</a><a href="terms.html">Conditions d’utilisation</a></div>
+      </footer>
+    </div>
+    <div id="toast" class="toast" aria-live="polite"></div>
+    <script src="../assets/js/app.js"></script>
+  </body>
+</html>

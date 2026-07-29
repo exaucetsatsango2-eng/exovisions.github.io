@@ -1,0 +1,29 @@
+[
+  {
+    "title": "Aurora Brand System",
+    "category": "Branding",
+    "description": "Identité visuelle premium pour une marque tech internationale avec une direction de marque cohérente.",
+    "technologies": ["Figma", "Illustrator", "Branding"],
+    "client": "Aurora Labs",
+    "date": "2025",
+    "colors": ["#6A8CFF", "#FF8F5C", "#111628"]
+  },
+  {
+    "title": "North UI Kit",
+    "category": "UI",
+    "description": "Kit de design complet pour une application SaaS moderne destinée à l’expansion B2B.",
+    "technologies": ["Figma", "Design Systems"],
+    "client": "North AI",
+    "date": "2024",
+    "colors": ["#0F172A", "#61A0FF", "#FF9A6C"]
+  },
+  {
+    "title": "Kairo Motion Campaign",
+    "category": "Motion Design",
+    "description": "Campagne visuelle courte pour la mise en avant d’une nouvelle gamme de produits premium.",
+    "technologies": ["After Effects", "Premiere Pro"],
+    "client": "Kairo Studio",
+    "date": "2024",
+    "colors": ["#1D3557", "#F4A261", "#E76F51"]
+  }
+]
