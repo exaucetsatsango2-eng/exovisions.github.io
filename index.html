@@ -1,127 +1,48 @@
 <!DOCTYPE html>
 <html lang="fr">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Portfolio officiel de ExoVisions_Win, designer graphique. Créations visuelles, portraits artistiques et design sur mesure.">
-    <title>ExoVisions_Win | Designer Graphique</title>
-    
-    <!-- Lien vers ta feuille de style (modifie le chemin si ton fichier s'appelle autrement, ex: style.css) -->
-    <link rel="stylesheet" href="style.css">
-    
-    <!-- Lien optionnel vers une police Google Fonts pour un rendu pro -->
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
-</head>
-<body>
-
-    <!-- EN-TÊTE & NAVIGATION -->
-    <header class="navbar">
-        <div class="logo">
-            <!-- Si tu as un logo en image, remplace le texte par : <img src="chemin/vers/logo.png" alt="Logo ExoVisions_Win"> -->
-            <h2>ExoVisions_Win</h2>
-        </div>
-        <nav>
-            <ul class="nav-links">
-                <li><a href="#accueil">Accueil</a></li>
-                <li><a href="#a-propos">À Propos</a></li>
-                <li><a href="#services">Services & Tarifs</a></li>
-                <li><a href="#portfolio">Portfolio</a></li>
-                <li><a href="#contact">Contact</a></li>
-            </ul>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Portfolio — Exovisions</title>
+    <meta name="description" content="Explorez les réalisations d’Exovisions : branding, UI, motion design et packaging premium."
+    <link rel="stylesheet" href="../assets/css/main.css" />
+  </head>
+  <body data-theme="dark">
+    <div class="page-shell">
+      <header class="site-header">
+        <a href="../index.html" class="brand">Exovisions</a>
+        <nav class="site-nav">
+          <a href="../index.html" class="nav-link">Accueil</a>
+          <a href="about.html" class="nav-link">À propos</a>
+          <a href="services.html" class="nav-link">Services</a>
+          <a href="portfolio.html" class="nav-link active">Portfolio</a>
+          <a href="cases.html" class="nav-link">Études de cas</a>
+          <a href="blog.html" class="nav-link">Blog</a>
+          <a href="contact.html" class="nav-link">Contact</a>
+          <a href="admin.html" class="nav-link">Admin</a>
         </nav>
-    </header>
-
-    <main>
-        <!-- SECTION ACCUEIL -->
-        <section id="accueil" class="hero-section">
-            <div class="hero-content">
-                <h1>Donnez vie à vos visions</h1>
-                <p>Bienvenue dans l'univers d'ExoVisions_Win. Spécialiste en design graphique et création de portraits artistiques ultra-réalistes.</p>
-                <a href="#portfolio" class="cta-button">Découvrir mon travail</a>
-            </div>
-        </section>
-
-        <!-- SECTION À PROPOS -->
-        <section id="a-propos" class="about-section">
-            <div class="container">
-                <h2>À Propos de Moi</h2>
-                <p>Passionné par l'art numérique et l'innovation visuelle, je mets mon expertise technique et créative au service de vos projets. Mon objectif est de transformer vos idées en visuels impactants, avec une attention particulière aux détails et à la qualité premium.</p>
-            </div>
-        </section>
-
-        <!-- SECTION SERVICES ET TARIFS -->
-        <section id="services" class="services-section">
-            <div class="container">
-                <h2>Mes Services & Tarifs</h2>
-                <div class="services-grid">
-                    <!-- Service 1 -->
-                    <div class="service-card">
-                        <h3>Identité Visuelle</h3>
-                        <p>Création de logos et charte graphique complète pour votre marque.</p>
-                        <!-- Tu pourras insérer tes tarifs réels ici -->
-                    </div>
-                    <!-- Service 2 -->
-                    <div class="service-card">
-                        <h3>Portraits Artistiques</h3>
-                        <p>Dessins au crayon, art numérique réaliste et retouches photo premium.</p>
-                    </div>
-                    <!-- Service 3 -->
-                    <div class="service-card">
-                        <h3>Design Publicitaire</h3>
-                        <p>Affiches, flyers et visuels pour les réseaux sociaux.</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- SECTION PORTFOLIO -->
-        <section id="portfolio" class="portfolio-section">
-            <div class="container">
-                <h2>Mon Portfolio</h2>
-                <div class="portfolio-grid">
-                    <!-- Remplace les "src" par les chemins réels de tes images stockées sur ton GitHub -->
-                    <div class="portfolio-item">
-                        <img src="images/projet1.jpg" alt="Projet de design graphique 1">
-                    </div>
-                    <div class="portfolio-item">
-                        <img src="images/projet2.jpg" alt="Projet de design graphique 2">
-                    </div>
-                    <div class="portfolio-item">
-                        <img src="images/projet3.jpg" alt="Projet de design graphique 3">
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- SECTION CONTACT -->
-        <section id="contact" class="contact-section">
-            <div class="container">
-                <h2>Travaillons Ensemble</h2>
-                <p>Prêt à lancer votre prochain projet visuel ? Contactez-moi pour en discuter.</p>
-                <form action="#" method="POST" class="contact-form">
-                    <input type="text" name="nom" placeholder="Votre Nom" required>
-                    <input type="email" name="email" placeholder="Votre Email" required>
-                    <textarea name="message" rows="5" placeholder="Votre Message" required></textarea>
-                    <button type="submit" class="submit-button">Envoyer le message</button>
-                </form>
-            </div>
-        </section>
-    </main>
-
-    <!-- PIED DE PAGE -->
-    <footer>
-        <div class="footer-content">
-            <p>&copy; 2026 ExoVisions_Win. Tous droits réservés.</p>
-            <div class="social-links">
-                <!-- Ajoute tes liens de réseaux sociaux ici -->
-                <a href="#">Instagram</a>
-                <a href="#">LinkedIn</a>
-                <a href="#">TikTok</a>
-            </div>
+        <div class="header-actions">
+          <button class="theme-toggle" aria-label="Changer le thème">☼</button>
+          <a class="button button-primary" href="contact.html">Démarrer un projet</a>
         </div>
-    </footer>
-
-    <!-- Lien vers ton fichier JavaScript (optionnel, modifie le nom si nécessaire) -->
-    <script src="main.js"></script>
-</body>
+      </header>
+      <main>
+        <section class="section">
+          <h1 class="page-title">Portfolio</h1>
+          <p class="page-intro">Une galerie professionnelle de projets d’impact, de qualité et de cohérence visuelle.</p>
+          <div class="search-box">
+            <input id="portfolio-search" type="search" placeholder="Rechercher une réalisation..." />
+          </div>
+          <div id="portfolio-filters" class="filter-bar"></div>
+          <div id="portfolio-list" class="card-grid"></div>
+        </section>
+      </main>
+      <footer class="site-footer">
+        <div><strong>Exovisions</strong><p>Design premium, stratégie visuelle et exécution efficace.</p></div>
+        <div class="footer-links"><a href="privacy.html">Politique de confidentialité</a><a href="terms.html">Conditions d’utilisation</a></div>
+      </footer>
+    </div>
+    <div id="toast" class="toast" aria-live="polite"></div>
+    <script src="../assets/js/app.js"></script>
+  </body>
 </html>
