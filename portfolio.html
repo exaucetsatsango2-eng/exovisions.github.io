@@ -712,4 +712,32 @@
   }
 
 
-  filter
+  filterButtons.forEach(button => {
+
+    button.addEventListener("click", () => {
+
+      filterButtons.forEach(item =>
+        item.classList.remove("active")
+      );
+
+      button.classList.add("active");
+
+      currentFilter =
+        button.dataset.filter;
+
+      filterProjects();
+
+    });
+
+  });
+
+
+  search.addEventListener(
+    "input",
+    filterProjects
+  );
+
+</script>
+
+</body>
+</html>
