@@ -1,81 +1,1373 @@
 <!DOCTYPE html>
 <html lang="fr">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Contact — Exovisions</title>
-    <meta name="description" content="Écrivez à Exovisions pour démarrer votre prochain projet de design premium." />
-    <link rel="stylesheet" href="main.css" />
-  </head>
-  <body data-theme="dark">
-    <div class="page-shell">
-      <header class="site-header">
-        <a href="index.html" class="brand">Exovisions</a>
-        <nav class="site-nav">
-          <a href="index.html" class="nav-link">Accueil</a>
-          <a href="about.html" class="nav-link">À propos</a>
-          <a href="services.html" class="nav-link">Services</a>
-          <a href="portfolio.html" class="nav-link">Portfolio</a>
-          <a href="cases.html" class="nav-link">Études de cas</a>
-          <a href="blog.html" class="nav-link">Blog</a>
-          <a href="contact.html" class="nav-link active">Contact</a>
-          <a href="admin.html" class="nav-link">Admin</a>
-        </nav>
-        <div class="header-actions">
-          <button class="theme-toggle" aria-label="Changer le thème">☼</button>
-          <a class="button button-primary" href="contact.html">Démarrer un projet</a>
-        </div>
-      </header>
-      <main>
-        <section class="section">
-          <div class="section-heading">
-            <p class="eyebrow">Contact</p>
-            <h2>Prêt à lancer votre prochain chapitre visuel ?</h2>
-            <p>Parlez-nous de votre marque, de votre ambition et de votre calendrier.</p>
-          </div>
-          <div class="form-grid">
-            <div class="form-card">
-              <form id="admin-form">
-                <div class="input-group">
-                  <label for="name">Nom</label>
-                  <input id="name" name="name" required />
-                </div>
-                <div class="input-group">
-                  <label for="email">Email</label>
-                  <input id="email" name="email" type="email" required />
-                </div>
-                <div class="input-group">
-                  <label for="service">Service</label>
-                  <select id="service" name="service">
-                    <option>Branding</option>
-                    <option>UI/UX</option>
-                    <option>Motion</option>
-                    <option>Packaging</option>
-                  </select>
-                </div>
-                <div class="input-group">
-                  <label for="message">Projet</label>
-                  <textarea id="message" name="message" rows="5" required></textarea>
-                </div>
-                <button class="button button-primary" type="submit">Envoyer la demande</button>
-              </form>
-            </div>
-            <div class="form-card">
-              <h3>Coordonnées</h3>
-              <p>Email : exovisionswin@gmail.com</p>
-              <p>Téléphone : +243 995 800 142</p>
-              <p>Localisation : Butembo, République Démocratique du Congo</p>
-              <p>Réponse en moins de 24h.</p>
-            </div>
-          </div>
-        </section>
-      </main>
-      <footer class="site-footer">
-        <div><strong>Exovisions</strong><p>Design premium, stratégie visuelle et exécution efficace.</p></div>
-        <div class="footer-links"><a href="privacy.html">Politique de confidentialité</a><a href="terms.html">Conditions d’utilisation</a></div>
-      </footer>
+
+<head>
+
+  <meta charset="UTF-8">
+
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  >
+
+  <title>Contact & Commande — ExoVisions</title>
+
+  <meta
+    name="description"
+    content="Démarrez votre projet avec ExoVisions. Demandez un devis ou envoyez votre brief créatif."
+  >
+
+  <link
+    rel="preconnect"
+    href="https://fonts.googleapis.com"
+  >
+
+  <link
+    rel="preconnect"
+    href="https://fonts.gstatic.com"
+    crossorigin
+  >
+
+  <link
+    href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@500;600;700;800&display=swap"
+    rel="stylesheet"
+  >
+
+  <link
+    rel="stylesheet"
+    href="main.css"
+  >
+
+
+  <style>
+
+    .contact-page {
+      padding-top: 100px;
+    }
+
+
+    .contact-hero {
+      max-width: 900px;
+      margin-bottom: 70px;
+    }
+
+
+    .contact-hero h1 {
+
+      font-family: "Manrope", sans-serif;
+
+      font-size: clamp(55px,8vw,105px);
+
+      line-height: .92;
+
+      letter-spacing: -.08em;
+
+    }
+
+
+    .contact-hero h1 span {
+      color: var(--accent);
+    }
+
+
+    .contact-hero p {
+
+      max-width: 620px;
+
+      margin-top: 25px;
+
+      color: var(--muted);
+
+      font-size: 17px;
+
+      line-height: 1.8;
+
+    }
+
+
+    .contact-layout {
+
+      display: grid;
+
+      grid-template-columns: .75fr 1.25fr;
+
+      gap: 25px;
+
+      align-items: start;
+
+    }
+
+
+    .contact-info {
+
+      padding: 35px;
+
+      border: 1px solid var(--line);
+
+      border-radius: var(--radius);
+
+      background: var(--card);
+
+    }
+
+
+    .contact-info h2 {
+
+      font-family: "Manrope", sans-serif;
+
+      font-size: 25px;
+
+      margin-bottom: 12px;
+
+    }
+
+
+    .contact-info > p {
+
+      color: var(--muted);
+
+      font-size: 13px;
+
+      line-height: 1.8;
+
+      margin-bottom: 35px;
+
+    }
+
+
+    .contact-method {
+
+      padding: 20px 0;
+
+      border-top: 1px solid var(--line);
+
+    }
+
+
+    .contact-method span {
+
+      display: block;
+
+      color: var(--muted);
+
+      font-size: 10px;
+
+      letter-spacing: .12em;
+
+      text-transform: uppercase;
+
+      margin-bottom: 6px;
+
+    }
+
+
+    .contact-method strong {
+
+      font-size: 14px;
+
+    }
+
+
+    .contact-method a:hover {
+
+      color: var(--accent);
+
+    }
+
+
+    .form-card {
+
+      padding: 40px;
+
+      border: 1px solid var(--line);
+
+      border-radius: var(--radius);
+
+      background: var(--card);
+
+    }
+
+
+    .form-card h2 {
+
+      font-family: "Manrope", sans-serif;
+
+      font-size: 30px;
+
+      letter-spacing: -.04em;
+
+      margin-bottom: 8px;
+
+    }
+
+
+    .form-intro {
+
+      color: var(--muted);
+
+      font-size: 13px;
+
+      margin-bottom: 35px;
+
+    }
+
+
+    .form-grid {
+
+      display: grid;
+
+      grid-template-columns: 1fr 1fr;
+
+      gap: 18px;
+
+    }
+
+
+    .form-group {
+
+      display: flex;
+
+      flex-direction: column;
+
+      gap: 7px;
+
+    }
+
+
+    .form-group.full {
+
+      grid-column: 1 / -1;
+
+    }
+
+
+    .form-group label {
+
+      font-size: 11px;
+
+      font-weight: 700;
+
+    }
+
+
+    .form-group input,
+
+    .form-group select,
+
+    .form-group textarea {
+
+      width: 100%;
+
+      border: 1px solid var(--line);
+
+      border-radius: 12px;
+
+      background: var(--bg-soft);
+
+      color: var(--text);
+
+      outline: none;
+
+      padding: 13px 14px;
+
+      font-size: 13px;
+
+      transition: border-color .2s ease;
+
+    }
+
+
+    .form-group textarea {
+
+      min-height: 150px;
+
+      resize: vertical;
+
+    }
+
+
+    .form-group input:focus,
+
+    .form-group select:focus,
+
+    .form-group textarea:focus {
+
+      border-color: var(--accent);
+
+    }
+
+
+    .form-group input::placeholder,
+
+    .form-group textarea::placeholder {
+
+      color: #777;
+
+    }
+
+
+    .budget-options {
+
+      display: flex;
+
+      flex-wrap: wrap;
+
+      gap: 8px;
+
+    }
+
+
+    .budget-option {
+
+      position: relative;
+
+    }
+
+
+    .budget-option input {
+
+      position: absolute;
+
+      opacity: 0;
+
+      pointer-events: none;
+
+    }
+
+
+    .budget-option label {
+
+      display: block;
+
+      padding: 9px 13px;
+
+      border: 1px solid var(--line);
+
+      border-radius: 100px;
+
+      color: var(--muted);
+
+      cursor: pointer;
+
+      font-size: 11px;
+
+      font-weight: 500;
+
+      transition: .2s ease;
+
+    }
+
+
+    .budget-option input:checked + label {
+
+      background: var(--accent);
+
+      border-color: var(--accent);
+
+      color: #080808;
+
+    }
+
+
+    .form-submit {
+
+      width: 100%;
+
+      border: 0;
+
+      cursor: pointer;
+
+      margin-top: 10px;
+
+    }
+
+
+    .form-note {
+
+      margin-top: 15px;
+
+      color: var(--muted);
+
+      text-align: center;
+
+      font-size: 10px;
+
+      line-height: 1.6;
+
+    }
+
+
+    .success-message {
+
+      display: none;
+
+      padding: 25px;
+
+      margin-top: 20px;
+
+      border: 1px solid rgba(215,255,63,.35);
+
+      border-radius: 15px;
+
+      background: rgba(215,255,63,.05);
+
+    }
+
+
+    .success-message.show {
+
+      display: block;
+
+    }
+
+
+    .success-message strong {
+
+      display: block;
+
+      margin-bottom: 5px;
+
+      color: var(--accent);
+
+    }
+
+
+    .success-message p {
+
+      color: var(--muted);
+
+      font-size: 12px;
+
+    }
+
+
+    @media (max-width: 850px) {
+
+      .contact-layout {
+
+        grid-template-columns: 1fr;
+
+      }
+
+    }
+
+
+    @media (max-width: 600px) {
+
+      .contact-page {
+
+        padding-top: 60px;
+
+      }
+
+      .form-card {
+
+        padding: 25px 18px;
+
+      }
+
+      .form-grid {
+
+        grid-template-columns: 1fr;
+
+      }
+
+      .form-group.full {
+
+        grid-column: auto;
+
+      }
+
+    }
+
+  </style>
+
+</head>
+
+
+<body>
+
+
+<div class="site">
+
+
+  <!-- HEADER -->
+
+  <header class="header">
+
+
+    <a
+      href="index.html"
+      class="logo"
+    >
+
+      <span class="logo-mark">
+        E
+      </span>
+
+      <span>
+        ExoVisions
+      </span>
+
+    </a>
+
+
+    <nav
+      class="navigation"
+      id="navigation"
+    >
+
+      <a
+        href="index.html"
+        class="nav-link"
+      >
+        Accueil
+      </a>
+
+      <a
+        href="services.html"
+        class="nav-link"
+      >
+        Services
+      </a>
+
+      <a
+        href="portfolio.html"
+        class="nav-link"
+      >
+        Portfolio
+      </a>
+
+      <a
+        href="cases.html"
+        class="nav-link"
+      >
+        Études de cas
+      </a>
+
+      <a
+        href="about.html"
+        class="nav-link"
+      >
+        À propos
+      </a>
+
+      <a
+        href="contact.html"
+        class="nav-link active"
+      >
+        Contact
+      </a>
+
+    </nav>
+
+
+    <div class="header-actions">
+
+
+      <button
+        class="icon-button"
+        id="themeToggle"
+        aria-label="Changer le thème"
+      >
+        ☼
+      </button>
+
+
+      <a
+        href="#project-form"
+        class="header-cta"
+      >
+        Démarrer un projet ↗
+      </a>
+
+
+      <button
+        class="menu-button"
+        id="menuButton"
+        aria-label="Menu"
+      >
+
+        <span></span>
+        <span></span>
+
+      </button>
+
+
     </div>
-    <div id="toast" class="toast" aria-live="polite"></div>
-    <script src="app.js"></script>
-  </body>
-</html>
+
+
+  </header>
+
+
+  <main class="contact-page">
+
+
+    <!-- HERO -->
+
+    <section class="contact-hero">
+
+      <span class="section-number">
+        01 — CONTACT
+      </span>
+
+
+      <h1>
+
+        Parlons de votre
+        <span>prochaine idée.</span>
+
+      </h1>
+
+
+      <p>
+
+        Décrivez-nous votre projet, vos objectifs et vos besoins.
+        Nous reviendrons vers vous pour discuter de la meilleure
+        direction créative.
+
+      </p>
+
+    </section>
+
+
+    <!-- CONTACT -->
+
+    <section class="contact-layout">
+
+
+      <!-- INFO -->
+
+      <aside class="contact-info">
+
+
+        <h2>
+          Travaillons ensemble.
+        </h2>
+
+
+        <p>
+
+          Que vous lanciez une nouvelle marque ou que vous souhaitiez
+          améliorer votre communication visuelle, nous pouvons construire
+          quelque chose de solide ensemble.
+
+        </p>
+
+
+        <div class="contact-method">
+
+          <span>
+            WhatsApp
+          </span>
+
+          <strong>
+            Disponible sur demande
+          </strong>
+
+        </div>
+
+
+        <div class="contact-method">
+
+          <span>
+            Localisation
+          </span>
+
+          <strong>
+            République démocratique du Congo
+          </strong>
+
+        </div>
+
+
+        <div class="contact-method">
+
+          <span>
+            Réponse
+          </span>
+
+          <strong>
+            Généralement sous 24–48h
+          </strong>
+
+        </div>
+
+
+        <div class="contact-method">
+
+          <span>
+            Type de projets
+          </span>
+
+          <strong>
+            Branding · Design · Digital
+          </strong>
+
+        </div>
+
+
+      </aside>
+
+
+      <!-- FORM -->
+
+      <div
+        class="form-card"
+        id="project-form"
+      >
+
+
+        <h2>
+          Votre projet
+        </h2>
+
+
+        <p class="form-intro">
+
+          Plus votre brief est précis, mieux nous pourrons comprendre
+          votre besoin.
+
+        </p>
+
+
+        <form id="projectForm">
+
+
+          <div class="form-grid">
+
+
+            <div class="form-group">
+
+              <label for="name">
+                Nom complet *
+              </label>
+
+              <input
+                id="name"
+                name="name"
+                type="text"
+                placeholder="Votre nom"
+                required
+              >
+
+            </div>
+
+
+            <div class="form-group">
+
+              <label for="email">
+                Adresse email *
+              </label>
+
+              <input
+                id="email"
+                name="email"
+                type="email"
+                placeholder="vous@email.com"
+                required
+              >
+
+            </div>
+
+
+            <div class="form-group">
+
+              <label for="phone">
+                WhatsApp / Téléphone
+              </label>
+
+              <input
+                id="phone"
+                name="phone"
+                type="tel"
+                placeholder="+243..."
+              >
+
+            </div>
+
+
+            <div class="form-group">
+
+              <label for="company">
+                Entreprise / Marque
+              </label>
+
+              <input
+                id="company"
+                name="company"
+                type="text"
+                placeholder="Nom de votre entreprise"
+              >
+
+            </div>
+
+
+            <div class="form-group full">
+
+              <label for="service">
+                Service souhaité *
+              </label>
+
+              <select
+                id="service"
+                name="service"
+                required
+              >
+
+                <option value="">
+                  Sélectionnez un service
+                </option>
+
+                <option value="identite">
+                  Identité visuelle
+                </option>
+
+                <option value="branding">
+                  Branding
+                </option>
+
+                <option value="graphisme">
+                  Design graphique
+                </option>
+
+                <option value="digital">
+                  Design digital
+                </option>
+
+                <option value="publicite">
+                  Supports publicitaires
+                </option>
+
+                <option value="autre">
+                  Autre projet
+                </option>
+
+              </select>
+
+            </div>
+
+
+            <div class="form-group full">
+
+              <label>
+                Budget approximatif
+              </label>
+
+
+              <div class="budget-options">
+
+
+                <div class="budget-option">
+
+                  <input
+                    type="radio"
+                    id="budget1"
+                    name="budget"
+                    value="moins-50"
+                  >
+
+                  <label for="budget1">
+                    &lt; $50
+                  </label>
+
+                </div>
+
+
+                <div class="budget-option">
+
+                  <input
+                    type="radio"
+                    id="budget2"
+                    name="budget"
+                    value="50-100"
+                  >
+
+                  <label for="budget2">
+                    $50 – $100
+                  </label>
+
+                </div>
+
+
+                <div class="budget-option">
+
+                  <input
+                    type="radio"
+                    id="budget3"
+                    name="budget"
+                    value="100-250"
+                  >
+
+                  <label for="budget3">
+                    $100 – $250
+                  </label>
+
+                </div>
+
+
+                <div class="budget-option">
+
+                  <input
+                    type="radio"
+                    id="budget4"
+                    name="budget"
+                    value="250-plus"
+                  >
+
+                  <label for="budget4">
+                    $250+
+                  </label>
+
+                </div>
+
+
+                <div class="budget-option">
+
+                  <input
+                    type="radio"
+                    id="budget5"
+                    name="budget"
+                    value="a-discuter"
+                  >
+
+                  <label for="budget5">
+                    À discuter
+                  </label>
+
+                </div>
+
+
+              </div>
+
+            </div>
+
+
+            <div class="form-group full">
+
+              <label for="deadline">
+                Délai souhaité
+              </label>
+
+              <select
+                id="deadline"
+                name="deadline"
+              >
+
+                <option value="">
+                  Sélectionnez un délai
+                </option>
+
+                <option value="urgent">
+                  Urgent — moins d'une semaine
+                </option>
+
+                <option value="1-2-semaines">
+                  1 à 2 semaines
+                </option>
+
+                <option value="2-4-semaines">
+                  2 à 4 semaines
+                </option>
+
+                <option value="flexible">
+                  Flexible
+                </option>
+
+              </select>
+
+            </div>
+
+
+            <div class="form-group full">
+
+              <label for="message">
+                Parlez-nous de votre projet *
+              </label>
+
+              <textarea
+                id="message"
+                name="message"
+                placeholder="Quel est votre projet ? Quel résultat souhaitez-vous obtenir ?"
+                required
+              ></textarea>
+
+            </div>
+
+
+            <div class="form-group full">
+
+              <button
+                type="submit"
+                class="button button-primary form-submit"
+              >
+
+                Envoyer ma demande
+                <span>↗</span>
+
+              </button>
+
+
+              <p class="form-note">
+
+                Vos informations sont utilisées uniquement pour
+                répondre à votre demande de projet.
+
+              </p>
+
+            </div>
+
+
+          </div>
+
+
+        </form>
+
+
+        <div
+          class="success-message"
+          id="successMessage"
+        >
+
+          <strong>
+            ✓ Demande enregistrée
+          </strong>
+
+          <p>
+
+            Votre brief a été enregistré sur cet appareil.
+            Nous pourrons ensuite connecter ce formulaire à
+            votre système de gestion des commandes.
+
+          </p>
+
+        </div>
+
+
+      </div>
+
+
+    </section>
+
+
+  </main>
+
+
+  <!-- FOOTER -->
+
+  <footer class="footer">
+
+
+    <div class="footer-top">
+
+
+      <div class="footer-brand">
+
+        <a
+          href="index.html"
+          class="logo"
+        >
+
+          <span class="logo-mark">
+            E
+          </span>
+
+          <span>
+            ExoVisions
+          </span>
+
+        </a>
+
+
+        <p>
+
+          Design graphique, branding et direction artistique
+          pour des marques qui veulent aller plus loin.
+
+        </p>
+
+      </div>
+
+
+      <div class="footer-column">
+
+        <h4>
+          Navigation
+        </h4>
+
+        <a href="index.html">
+          Accueil
+        </a>
+
+        <a href="services.html">
+          Services
+        </a>
+
+        <a href="portfolio.html">
+          Portfolio
+        </a>
+
+        <a href="about.html">
+          À propos
+        </a>
+
+      </div>
+
+
+      <div class="footer-column">
+
+        <h4>
+          Projet
+        </h4>
+
+        <a href="contact.html">
+          Demander un devis
+        </a>
+
+        <a href="cases.html">
+          Études de cas
+        </a>
+
+      </div>
+
+
+      <div class="footer-column">
+
+        <h4>
+          Contact
+        </h4>
+
+        <a href="contact.html">
+          Nous contacter
+        </a>
+
+        <a
+          href="https://wa.me/"
+          target="_blank"
+        >
+          WhatsApp
+        </a>
+
+      </div>
+
+
+    </div>
+
+
+    <div class="footer-bottom">
+
+      <span>
+        © 2026 ExoVisions. Tous droits réservés.
+      </span>
+
+
+      <div>
+
+        <a href="privacy.html">
+          Confidentialité
+        </a>
+
+        <a href="terms.html">
+          Conditions
+        </a>
+
+      </div>
+
+    </div>
+
+
+  </footer>
+
+
+</div>
+
+
+<script>
+
+  /* ================= THEME ================= */
+
+  const themeToggle =
+    document.getElementById("themeToggle");
+
+
+  const savedTheme =
+    localStorage.getItem("exovisions-theme");
+
+
+  if (savedTheme === "light") {
+
+    document.body.classList.add("light");
+
+    themeToggle.textContent = "☾";
+
+  }
+
+
+  themeToggle.addEventListener(
+    "click",
+    () => {
+
+      document.body.classList.toggle("light");
+
+      const light =
+        document.body.classList.contains("light");
+
+      localStorage.setItem(
+        "exovisions-theme",
+        light ? "light" : "dark"
+      );
+
+      themeToggle.textContent =
+        light ? "☾" : "☼";
+
+    }
+  );
+
+
+  /* ================= MOBILE MENU ================= */
+
+  const menuButton =
+    document.getElementById("menuButton");
+
+  const navigation =
+    document.getElementById("navigation");
+
+
+  menuButton.addEventListener(
+    "click",
+    () => {
+
+      navigation.classList.toggle("open");
+
+    }
+  );
+
+
+  /* ================= SERVICE FROM URL ================= */
+
+  const params =
+    new URLSearchParams(
+      window.location.search
+    );
+
+
+  const selectedService =
+    params.get("service");
+
+
+  const serviceSelect =
+    document.getElementById("service");
+
+
+  if (selectedService && serviceSelect) {
+
+    const option =
+      serviceSelect.querySelector(
+        `option[value="${selectedService}"]`
+      );
+
+
+    if (option) {
+
+      serviceSelect.value =
+        selectedService;
+
+    }
+
+  }
+
+
+  /* ================= FORM ================= */
+
+  const form =
+    document.getElementById("projectForm");
+
+
+  const successMessage =
+    document.getElementById("successMessage");
+
+
+  form.addEventListener(
+    "submit",
+    event => {
+
+      event.preventDefault();
+
+
+      const formData =
+        new FormData(form);
+
+
+      const project = {
+
+        id:
+          "EXO-" +
+          Date.now(),
+
+        date:
+          new Date().toISOString(),
+
+        name:
+          formData.get("name"),
+
+        email:
+          formData.get("email"),
+
+        phone:
+          formData.get("phone"),
+
+        company:
+          formData.get("company"),
+
+        service:
+          formData.get("service"),
+
+        budget:
+          formData.get("budget"),
+
+        deadline:
+          formData.get("deadline"),
+
+        message:
+          formData.get("message"),
+
+        status:
+          "nouvelle"
+
+      };
+
+
+      /*
+
+        Système temporaire local.
+
+        La prochaine étape sera de connecter
+        ces commandes au dashboard admin.
+
+      */
+
+      const existing =
+        JSON.parse(
+          localStorage.getItem(
+            "exovisions-orders"
+          ) || "[]"
+        );
+
+
+      existing.push(project);
+
+
+      localStorage.setItem(
+        "exovisions-orders",
+        JSON.stringify(existing)
+      );
+
+
+      form.reset();
+
+
+      successMessage.classList.add("show");
+
+
+      successMessage.scrollIntoView({
+        be
