@@ -1,44 +1,880 @@
 <!DOCTYPE html>
 <html lang="fr">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Services — Exovisions</title>
-    <meta name="description" content="Découvrez les services premium d’Exovisions : branding, UI/UX, motion, packaging et contenu visuel."
-    <link rel="stylesheet" href="main.css" />
-  </head>
-  <body data-theme="dark">
-    <div class="page-shell">
-      <header class="site-header">
-        <a href="index.html" class="brand">Exovisions</a>
-        <nav class="site-nav">
-          <a href="index.html" class="nav-link">Accueil</a>
-          <a href="about.html" class="nav-link">À propos</a>
-          <a href="services.html" class="nav-link active">Services</a>
-          <a href="portfolio.html" class="nav-link">Portfolio</a>
-          <a href="cases.html" class="nav-link">Études de cas</a>
-          <a href="blog.html" class="nav-link">Blog</a>
-          <a href="contact.html" class="nav-link">Contact</a>
-          <a href="admin.html" class="nav-link">Admin</a>
-        </nav>
-        <div class="header-actions">
-          <button class="theme-toggle" aria-label="Changer le thème">☼</button>
-          <a class="button button-primary" href="contact.html">Démarrer un projet</a>
-        </div>
-      </header>
-      <main>
-        <section class="section">
-          <h1 class="page-title">Services premium</h1>
-          <p class="page-intro">Des solutions complètes pour renforcer la présence visuelle de votre marque, du concept à la publication.</p>
-          <div id="services-list" class="card-grid"></div>
-        </section>
-      </main>
-      <footer class="site-footer">
-        <div><strong>Exovisions</strong><p>Design premium, stratégie visuelle et exécution efficace.</p></div>
-        <div class="footer-links"><a href="privacy.html">Politique de confidentialité</a><a href="terms.html">Conditions d’utilisation</a></div>
-      </footer>
+<head>
+
+  <meta charset="UTF-8">
+
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  >
+
+  <title>Services — ExoVisions</title>
+
+  <meta
+    name="description"
+    content="Découvrez les services ExoVisions : identité visuelle, branding, design graphique et design digital."
+  >
+
+  <link
+    rel="preconnect"
+    href="https://fonts.googleapis.com"
+  >
+
+  <link
+    rel="preconnect"
+    href="https://fonts.gstatic.com"
+    crossorigin
+  >
+
+  <link
+    href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@500;600;700;800&display=swap"
+    rel="stylesheet"
+  >
+
+  <link
+    rel="stylesheet"
+    href="main.css"
+  >
+
+  <style>
+
+    .services-page {
+      padding-top: 100px;
+    }
+
+    .services-hero {
+      max-width: 900px;
+      margin-bottom: 80px;
+    }
+
+    .services-hero h1 {
+      font-family: "Manrope", sans-serif;
+      font-size: clamp(55px,8vw,105px);
+      line-height: .92;
+      letter-spacing: -.08em;
+    }
+
+    .services-hero h1 span {
+      color: var(--accent);
+    }
+
+    .services-hero p {
+      max-width: 650px;
+      margin-top: 28px;
+      color: var(--muted);
+      font-size: 17px;
+      line-height: 1.8;
+    }
+
+    .services-list {
+      border-top: 1px solid var(--line);
+    }
+
+    .service-detail {
+      display: grid;
+      grid-template-columns: 100px 1.2fr 1fr 130px;
+      gap: 30px;
+      align-items: start;
+      padding: 45px 0;
+      border-bottom: 1px solid var(--line);
+      transition: .3s ease;
+    }
+
+    .service-detail:hover {
+      padding-left: 15px;
+      padding-right: 15px;
+      background: var(--card);
+    }
+
+    .service-index {
+      color: var(--accent);
+      font-size: 12px;
+      font-weight: 800;
+    }
+
+    .service-detail h2 {
+      font-family: "Manrope", sans-serif;
+      font-size: 30px;
+      letter-spacing: -.04em;
+    }
+
+    .service-detail p {
+      color: var(--muted);
+      font-size: 14px;
+      line-height: 1.8;
+    }
+
+    .service-features {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 7px;
+    }
+
+    .feature {
+      padding: 7px 10px;
+      border: 1px solid var(--line);
+      border-radius: 100px;
+      color: var(--muted);
+      font-size: 10px;
+    }
+
+    .service-order {
+      justify-self: end;
+    }
+
+    .service-order a {
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      padding: 11px 14px;
+      border: 1px solid var(--line);
+      border-radius: 100px;
+      font-size: 11px;
+      font-weight: 700;
+      transition: .25s ease;
+    }
+
+    .service-order a:hover {
+      background: var(--accent);
+      border-color: var(--accent);
+      color: #080808;
+    }
+
+    .service-cta {
+      margin-top: 90px;
+    }
+
+    @media (max-width: 900px) {
+
+      .service-detail {
+        grid-template-columns: 60px 1fr;
+      }
+
+      .service-features {
+        grid-column: 2;
+      }
+
+      .service-order {
+        grid-column: 2;
+        justify-self: start;
+      }
+
+    }
+
+    @media (max-width: 600px) {
+
+      .services-page {
+        padding-top: 60px;
+      }
+
+      .service-detail {
+        grid-template-columns: 45px 1fr;
+        gap: 15px;
+        padding: 35px 0;
+      }
+
+      .service-detail h2 {
+        font-size: 23px;
+      }
+
+      .service-features {
+        grid-column: 2;
+      }
+
+      .service-order {
+        grid-column: 2;
+      }
+
+    }
+
+  </style>
+
+</head>
+
+
+<body>
+
+<div class="site">
+
+
+  <!-- HEADER -->
+
+  <header class="header">
+
+    <a href="index.html" class="logo">
+
+      <span class="logo-mark">
+        E
+      </span>
+
+      <span>
+        ExoVisions
+      </span>
+
+    </a>
+
+
+    <nav
+      class="navigation"
+      id="navigation"
+    >
+
+      <a
+        href="index.html"
+        class="nav-link"
+      >
+        Accueil
+      </a>
+
+      <a
+        href="services.html"
+        class="nav-link active"
+      >
+        Services
+      </a>
+
+      <a
+        href="portfolio.html"
+        class="nav-link"
+      >
+        Portfolio
+      </a>
+
+      <a
+        href="cases.html"
+        class="nav-link"
+      >
+        Études de cas
+      </a>
+
+      <a
+        href="about.html"
+        class="nav-link"
+      >
+        À propos
+      </a>
+
+      <a
+        href="contact.html"
+        class="nav-link"
+      >
+        Contact
+      </a>
+
+    </nav>
+
+
+    <div class="header-actions">
+
+      <button
+        class="icon-button"
+        id="themeToggle"
+        aria-label="Changer le thème"
+      >
+        ☼
+      </button>
+
+
+      <a
+        href="contact.html"
+        class="header-cta"
+      >
+        Démarrer un projet ↗
+      </a>
+
+
+      <button
+        class="menu-button"
+        id="menuButton"
+        aria-label="Menu"
+      >
+
+        <span></span>
+        <span></span>
+
+      </button>
+
     </div>
-    <div id="toast" class="toast" aria-live="polite"></div>
-    <script src="app.js"></script>
-  </body>
+
+  </header>
+
+
+  <main class="services-page">
+
+
+    <!-- HERO -->
+
+    <section class="services-hero">
+
+      <span class="section-number">
+        01 — SERVICES
+      </span>
+
+      <h1>
+
+        Transformer une idée
+        <span>en identité.</span>
+
+      </h1>
+
+      <p>
+
+        Nous créons des solutions visuelles adaptées à votre
+        marque, votre audience et vos objectifs. Du premier
+        concept jusqu'aux fichiers finaux.
+
+      </p>
+
+    </section>
+
+
+    <!-- SERVICES -->
+
+    <section class="services-list">
+
+
+      <article class="service-detail">
+
+        <span class="service-index">
+          01
+        </span>
+
+
+        <div>
+
+          <h2>
+            Identité visuelle
+          </h2>
+
+        </div>
+
+
+        <div>
+
+          <p>
+
+            Construisez une marque cohérente et reconnaissable
+            grâce à une identité visuelle pensée dans ses moindres détails.
+
+          </p>
+
+
+          <div class="service-features">
+
+            <span class="feature">
+              Logo
+            </span>
+
+            <span class="feature">
+              Palette
+            </span>
+
+            <span class="feature">
+              Typographie
+            </span>
+
+            <span class="feature">
+              Charte graphique
+            </span>
+
+          </div>
+
+        </div>
+
+
+        <div class="service-order">
+
+          <a
+            href="contact.html?service=identite"
+          >
+            Commander ↗
+          </a>
+
+        </div>
+
+      </article>
+
+
+      <article class="service-detail">
+
+        <span class="service-index">
+          02
+        </span>
+
+
+        <div>
+
+          <h2>
+            Branding
+          </h2>
+
+        </div>
+
+
+        <div>
+
+          <p>
+
+            Une direction artistique complète pour positionner
+            votre marque et lui donner une personnalité forte.
+
+          </p>
+
+
+          <div class="service-features">
+
+            <span class="feature">
+              Stratégie
+            </span>
+
+            <span class="feature">
+              Positionnement
+            </span>
+
+            <span class="feature">
+              Direction artistique
+            </span>
+
+            <span class="feature">
+              Brand book
+            </span>
+
+          </div>
+
+        </div>
+
+
+        <div class="service-order">
+
+          <a
+            href="contact.html?service=branding"
+          >
+            Commander ↗
+          </a>
+
+        </div>
+
+      </article>
+
+
+      <article class="service-detail">
+
+        <span class="service-index">
+          03
+        </span>
+
+
+        <div>
+
+          <h2>
+            Design graphique
+          </h2>
+
+        </div>
+
+
+        <div>
+
+          <p>
+
+            Des créations graphiques professionnelles pour vos
+            campagnes, événements et communications quotidiennes.
+
+          </p>
+
+
+          <div class="service-features">
+
+            <span class="feature">
+              Affiches
+            </span>
+
+            <span class="feature">
+              Flyers
+            </span>
+
+            <span class="feature">
+              Réseaux sociaux
+            </span>
+
+            <span class="feature">
+              Supports print
+            </span>
+
+          </div>
+
+        </div>
+
+
+        <div class="service-order">
+
+          <a
+            href="contact.html?service=graphisme"
+          >
+            Commander ↗
+          </a>
+
+        </div>
+
+      </article>
+
+
+      <article class="service-detail">
+
+        <span class="service-index">
+          04
+        </span>
+
+
+        <div>
+
+          <h2>
+            Design digital
+          </h2>
+
+        </div>
+
+
+        <div>
+
+          <p>
+
+            Interfaces et contenus numériques modernes conçus
+            pour offrir une expérience claire et agréable.
+
+          </p>
+
+
+          <div class="service-features">
+
+            <span class="feature">
+              UI Design
+            </span>
+
+            <span class="feature">
+              Web Design
+            </span>
+
+            <span class="feature">
+              Social Media
+            </span>
+
+            <span class="feature">
+              Prototypes
+            </span>
+
+          </div>
+
+        </div>
+
+
+        <div class="service-order">
+
+          <a
+            href="contact.html?service=digital"
+          >
+            Commander ↗
+          </a>
+
+        </div>
+
+      </article>
+
+
+      <article class="service-detail">
+
+        <span class="service-index">
+          05
+        </span>
+
+
+        <div>
+
+          <h2>
+            Supports publicitaires
+          </h2>
+
+        </div>
+
+
+        <div>
+
+          <p>
+
+            Des supports qui attirent l'attention et transmettent
+            votre message rapidement et efficacement.
+
+          </p>
+
+
+          <div class="service-features">
+
+            <span class="feature">
+              Posters
+            </span>
+
+            <span class="feature">
+              Bannières
+            </span>
+
+            <span class="feature">
+              Publicité
+            </span>
+
+            <span class="feature">
+              Impression
+            </span>
+
+          </div>
+
+        </div>
+
+
+        <div class="service-order">
+
+          <a
+            href="contact.html?service=publicite"
+          >
+            Commander ↗
+          </a>
+
+        </div>
+
+      </article>
+
+
+    </section>
+
+
+    <!-- CTA -->
+
+    <section class="service-cta">
+
+      <div class="cta-card">
+
+        <span class="section-number">
+          VOTRE PROJET
+        </span>
+
+        <h2>
+
+          Vous avez une idée ?
+          <span>Construisons-la.</span>
+
+        </h2>
+
+        <p>
+
+          Décrivez-nous votre projet et recevez une orientation
+          claire sur la meilleure solution à mettre en place.
+
+        </p>
+
+        <div class="cta-actions">
+
+          <a
+            href="contact.html"
+            class="button button-primary"
+          >
+            Démarrer un projet ↗
+          </a>
+
+          <a
+            href="portfolio.html"
+            class="button button-secondary"
+          >
+            Voir nos réalisations
+          </a>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+  </main>
+
+
+  <!-- FOOTER -->
+
+  <footer class="footer">
+
+    <div class="footer-top">
+
+      <div class="footer-brand">
+
+        <a
+          href="index.html"
+          class="logo"
+        >
+
+          <span class="logo-mark">
+            E
+          </span>
+
+          <span>
+            ExoVisions
+          </span>
+
+        </a>
+
+
+        <p>
+
+          Design graphique, branding et direction artistique
+          pour des marques qui veulent aller plus loin.
+
+        </p>
+
+      </div>
+
+
+      <div class="footer-column">
+
+        <h4>
+          Navigation
+        </h4>
+
+        <a href="index.html">
+          Accueil
+        </a>
+
+        <a href="services.html">
+          Services
+        </a>
+
+        <a href="portfolio.html">
+          Portfolio
+        </a>
+
+        <a href="about.html">
+          À propos
+        </a>
+
+      </div>
+
+
+      <div class="footer-column">
+
+        <h4>
+          Projet
+        </h4>
+
+        <a href="contact.html">
+          Demander un devis
+        </a>
+
+        <a href="cases.html">
+          Études de cas
+        </a>
+
+      </div>
+
+
+      <div class="footer-column">
+
+        <h4>
+          Contact
+        </h4>
+
+        <a href="contact.html">
+          Nous contacter
+        </a>
+
+        <a
+          href="https://wa.me/"
+          target="_blank"
+        >
+          WhatsApp
+        </a>
+
+      </div>
+
+    </div>
+
+
+    <div class="footer-bottom">
+
+      <span>
+        © 2026 ExoVisions. Tous droits réservés.
+      </span>
+
+      <div>
+
+        <a href="privacy.html">
+          Confidentialité
+        </a>
+
+        <a href="terms.html">
+          Conditions
+        </a>
+
+      </div>
+
+    </div>
+
+  </footer>
+
+
+</div>
+
+
+<script>
+
+  /* THEME */
+
+  const themeToggle =
+    document.getElementById("themeToggle");
+
+  const savedTheme =
+    localStorage.getItem("exovisions-theme");
+
+
+  if (savedTheme === "light") {
+
+    document.body.classList.add("light");
+
+    themeToggle.textContent = "☾";
+
+  }
+
+
+  themeToggle.addEventListener("click", () => {
+
+    document.body.classList.toggle("light");
+
+    const light =
+      document.body.classList.contains("light");
+
+    localStorage.setItem(
+      "exovisions-theme",
+      light ? "light" : "dark"
+    );
+
+    themeToggle.textContent =
+      light ? "☾" : "☼";
+
+  });
+
+
+  /* MOBILE MENU */
+
+  const menuButton =
+    document.getElementById("menuButton");
+
+  const navigation =
+    document.getElementById("navigation");
+
+
+  menuButton.addEventListener("click", () => {
+
+    navigation.classList.toggle("open");
+
+  });
+
+</script>
+
+</body>
 </html>
