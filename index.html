@@ -1,48 +1,663 @@
 <!DOCTYPE html>
 <html lang="fr">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Portfolio — Exovisions</title>
-    <meta name="description" content="Explorez les réalisations d’Exovisions : branding, UI, motion design et packaging premium."
-    <link rel="stylesheet" href="main.css" />
-  </head>
-  <body data-theme="dark">
-    <div class="page-shell">
-      <header class="site-header">
-        <a href="index.html" class="brand">Exovisions</a>
-        <nav class="site-nav">
-          <a href="index.html" class="nav-link">Accueil</a>
-          <a href="about.html" class="nav-link">À propos</a>
-          <a href="services.html" class="nav-link">Services</a>
-          <a href="portfolio.html" class="nav-link active">Portfolio</a>
-          <a href="cases.html" class="nav-link">Études de cas</a>
-          <a href="blog.html" class="nav-link">Blog</a>
-          <a href="contact.html" class="nav-link">Contact</a>
-          <a href="admin.html" class="nav-link">Admin</a>
-        </nav>
-        <div class="header-actions">
-          <button class="theme-toggle" aria-label="Changer le thème">☼</button>
-          <a class="button button-primary" href="contact.html">Démarrer un projet</a>
-        </div>
-      </header>
-      <main>
-        <section class="section">
-          <h1 class="page-title">Portfolio</h1>
-          <p class="page-intro">Une galerie professionnelle de projets d’impact, de qualité et de cohérence visuelle.</p>
-          <div class="search-box">
-            <input id="portfolio-search" type="search" placeholder="Rechercher une réalisation..." />
-          </div>
-          <div id="portfolio-filters" class="filter-bar"></div>
-          <div id="portfolio-list" class="card-grid"></div>
-        </section>
-      </main>
-      <footer class="site-footer">
-        <div><strong>Exovisions</strong><p>Design premium, stratégie visuelle et exécution efficace.</p></div>
-        <div class="footer-links"><a href="privacy.html">Politique de confidentialité</a><a href="terms.html">Conditions d’utilisation</a></div>
-      </footer>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>ExoVisions — Design graphique & Identité visuelle</title>
+
+  <meta
+    name="description"
+    content="ExoVisions crée des identités visuelles, logos, supports publicitaires, branding et expériences digitales modernes."
+  >
+
+  <meta name="theme-color" content="#080808">
+
+  <meta property="og:title" content="ExoVisions — Creative Design Studio">
+  <meta
+    property="og:description"
+    content="Design graphique, branding et expériences visuelles qui donnent de la valeur aux marques."
+  >
+  <meta property="og:type" content="website">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+  <link
+    href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap"
+    rel="stylesheet"
+  >
+
+  <link rel="stylesheet" href="main.css">
+</head>
+
+<body>
+
+<div class="site">
+
+  <!-- ================= HEADER ================= -->
+
+  <header class="header" id="header">
+
+    <a href="index.html" class="logo">
+      <span class="logo-mark">E</span>
+      <span>ExoVisions</span>
+    </a>
+
+    <nav class="navigation" id="navigation">
+
+      <a href="#accueil" class="nav-link active">Accueil</a>
+      <a href="#services" class="nav-link">Services</a>
+      <a href="#portfolio" class="nav-link">Portfolio</a>
+      <a href="#processus" class="nav-link">Processus</a>
+      <a href="#apropos" class="nav-link">À propos</a>
+      <a href="#contact" class="nav-link">Contact</a>
+
+    </nav>
+
+    <div class="header-actions">
+
+      <button
+        class="icon-button"
+        id="themeToggle"
+        aria-label="Changer le thème"
+      >
+        ☼
+      </button>
+
+      <a href="#contact" class="header-cta">
+        Démarrer un projet
+        <span>↗</span>
+      </a>
+
+      <button
+        class="menu-button"
+        id="menuButton"
+        aria-label="Ouvrir le menu"
+      >
+        <span></span>
+        <span></span>
+      </button>
+
     </div>
-    <div id="toast" class="toast" aria-live="polite"></div>
-    <script src="app.js"></script>
-  </body>
+
+  </header>
+
+
+  <!-- ================= HERO ================= -->
+
+  <main>
+
+    <section class="hero section" id="accueil">
+
+      <div class="hero-content">
+
+        <div class="eyebrow">
+          <span class="eyebrow-dot"></span>
+          Studio créatif indépendant
+        </div>
+
+        <h1>
+          Nous donnons
+          <span>une identité</span>
+          aux idées.
+        </h1>
+
+        <p class="hero-description">
+          ExoVisions accompagne les marques, entreprises et entrepreneurs
+          dans la création d'une identité visuelle forte, moderne et mémorable.
+        </p>
+
+        <div class="hero-actions">
+
+          <a href="#portfolio" class="button button-primary">
+            Voir nos réalisations
+            <span>↗</span>
+          </a>
+
+          <a href="#contact" class="button button-secondary">
+            Parlons de votre projet
+          </a>
+
+        </div>
+
+        <div class="hero-trust">
+
+          <div class="avatars">
+            <span>EX</span>
+            <span>OV</span>
+            <span>+</span>
+          </div>
+
+          <div>
+            <strong>Créativité & précision</strong>
+            <small>Chaque détail compte.</small>
+          </div>
+
+        </div>
+
+      </div>
+
+
+      <div class="hero-visual">
+
+        <div class="visual-card">
+
+          <div class="visual-top">
+            <span>EXOVISIONS</span>
+            <span>01 / 04</span>
+          </div>
+
+          <div class="visual-center">
+
+            <div class="visual-orbit"></div>
+
+            <div class="visual-logo">
+              EXO
+            </div>
+
+          </div>
+
+          <div class="visual-bottom">
+
+            <span>BRAND IDENTITY</span>
+
+            <span class="visual-arrow">
+              ↗
+            </span>
+
+          </div>
+
+        </div>
+
+        <div class="floating-card floating-one">
+          <strong>Branding</strong>
+          <span>Identité visuelle</span>
+        </div>
+
+        <div class="floating-card floating-two">
+          <strong>Design</strong>
+          <span>Création graphique</span>
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- ================= SERVICES ================= -->
+
+    <section class="section services-section" id="services">
+
+      <div class="section-heading">
+
+        <div>
+          <span class="section-number">01 — SERVICES</span>
+
+          <h2>
+            Des solutions créatives
+            <span>pensées pour votre marque.</span>
+          </h2>
+        </div>
+
+        <p>
+          Nous transformons vos idées en expériences visuelles cohérentes,
+          professionnelles et adaptées à vos objectifs.
+        </p>
+
+      </div>
+
+
+      <div class="services-grid">
+
+        <article class="service-card featured">
+
+          <span class="service-number">01</span>
+
+          <div class="service-icon">✦</div>
+
+          <h3>Identité visuelle</h3>
+
+          <p>
+            Logo, couleurs, typographies, charte graphique et système
+            visuel complet pour construire une marque reconnaissable.
+          </p>
+
+          <a href="services.html" class="service-link">
+            Découvrir le service →
+          </a>
+
+        </article>
+
+
+        <article class="service-card">
+
+          <span class="service-number">02</span>
+
+          <div class="service-icon">◈</div>
+
+          <h3>Design graphique</h3>
+
+          <p>
+            Affiches, flyers, visuels réseaux sociaux, supports publicitaires
+            et créations graphiques professionnelles.
+          </p>
+
+          <a href="services.html" class="service-link">
+            Découvrir le service →
+          </a>
+
+        </article>
+
+
+        <article class="service-card">
+
+          <span class="service-number">03</span>
+
+          <div class="service-icon">⌁</div>
+
+          <h3>Branding & stratégie</h3>
+
+          <p>
+            Positionnement visuel, direction artistique et cohérence de
+            marque pour créer une présence forte.
+          </p>
+
+          <a href="services.html" class="service-link">
+            Découvrir le service →
+          </a>
+
+        </article>
+
+
+        <article class="service-card">
+
+          <span class="service-number">04</span>
+
+          <div class="service-icon">▣</div>
+
+          <h3>Design digital</h3>
+
+          <p>
+            Interfaces, contenus digitaux et expériences visuelles modernes
+            adaptées au web et aux plateformes sociales.
+          </p>
+
+          <a href="services.html" class="service-link">
+            Découvrir le service →
+          </a>
+
+        </article>
+
+      </div>
+
+    </section>
+
+
+    <!-- ================= PORTFOLIO ================= -->
+
+    <section class="section portfolio-section" id="portfolio">
+
+      <div class="section-heading">
+
+        <div>
+          <span class="section-number">02 — PORTFOLIO</span>
+
+          <h2>
+            Des créations qui
+            <span>parlent avant les mots.</span>
+          </h2>
+        </div>
+
+        <a href="portfolio.html" class="text-link">
+          Voir tout le portfolio ↗
+        </a>
+
+      </div>
+
+
+      <div class="portfolio-grid">
+
+        <a href="portfolio.html" class="project project-large">
+
+          <div class="project-image project-image-one">
+
+            <span class="project-label">
+              BRANDING
+            </span>
+
+            <div class="project-art">
+              EXO
+            </div>
+
+          </div>
+
+          <div class="project-info">
+            <div>
+              <h3>Identité de marque</h3>
+              <p>Direction artistique · Branding</p>
+            </div>
+
+            <span>↗</span>
+          </div>
+
+        </a>
+
+
+        <a href="portfolio.html" class="project">
+
+          <div class="project-image project-image-two">
+
+            <span class="project-label">
+              DIGITAL
+            </span>
+
+            <div class="project-art digital-art">
+              01
+            </div>
+
+          </div>
+
+          <div class="project-info">
+
+            <div>
+              <h3>Digital Experience</h3>
+              <p>UI Design · Direction artistique</p>
+            </div>
+
+            <span>↗</span>
+
+          </div>
+
+        </a>
+
+
+        <a href="portfolio.html" class="project">
+
+          <div class="project-image project-image-three">
+
+            <span class="project-label">
+              GRAPHIC DESIGN
+            </span>
+
+            <div class="project-art poster-art">
+              VISUAL
+            </div>
+
+          </div>
+
+          <div class="project-info">
+
+            <div>
+              <h3>Campagne visuelle</h3>
+              <p>Communication · Print</p>
+            </div>
+
+            <span>↗</span>
+
+          </div>
+
+        </a>
+
+      </div>
+
+    </section>
+
+
+    <!-- ================= PROCESSUS ================= -->
+
+    <section class="section process-section" id="processus">
+
+      <div class="section-heading">
+
+        <div>
+
+          <span class="section-number">03 — PROCESSUS</span>
+
+          <h2>
+            De l'idée à une
+            <span>identité remarquable.</span>
+          </h2>
+
+        </div>
+
+        <p>
+          Une méthode simple, transparente et structurée pour transformer
+          votre vision en résultat concret.
+        </p>
+
+      </div>
+
+
+      <div class="process-grid">
+
+        <div class="process-item">
+
+          <span>01</span>
+
+          <div>
+            <h3>Découverte</h3>
+            <p>
+              Nous comprenons votre entreprise, vos objectifs,
+              votre audience et votre vision.
+            </p>
+          </div>
+
+        </div>
+
+
+        <div class="process-item">
+
+          <span>02</span>
+
+          <div>
+            <h3>Stratégie</h3>
+            <p>
+              Nous définissons une direction créative cohérente
+              avec votre positionnement.
+            </p>
+          </div>
+
+        </div>
+
+
+        <div class="process-item">
+
+          <span>03</span>
+
+          <div>
+            <h3>Création</h3>
+            <p>
+              Nous concevons les éléments visuels avec précision
+              et attention aux détails.
+            </p>
+          </div>
+
+        </div>
+
+
+        <div class="process-item">
+
+          <span>04</span>
+
+          <div>
+            <h3>Livraison</h3>
+            <p>
+              Vous recevez des fichiers propres, organisés et
+              prêts pour vos différents supports.
+            </p>
+          </div>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- ================= ABOUT ================= -->
+
+    <section class="section about-section" id="apropos">
+
+      <div class="about-card">
+
+        <div class="about-number">
+          EXO
+        </div>
+
+        <div class="about-content">
+
+          <span class="section-number">
+            04 — À PROPOS
+          </span>
+
+          <h2>
+            Plus qu'un design.
+            <span>Une vision.</span>
+          </h2>
+
+          <p>
+            ExoVisions est un studio créatif spécialisé dans le design
+            graphique, le branding et la création d'identités visuelles.
+          </p>
+
+          <p>
+            Notre approche combine esthétique, stratégie et simplicité
+            afin de créer des marques qui restent dans les esprits.
+          </p>
+
+          <a href="about.html" class="button button-secondary">
+            En savoir plus →
+          </a>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- ================= CTA ================= -->
+
+    <section class="section cta-section" id="contact">
+
+      <div class="cta-card">
+
+        <span class="section-number">
+          05 — VOTRE PROJET
+        </span>
+
+        <h2>
+          Et si votre prochaine
+          <span>identité commençait ici ?</span>
+        </h2>
+
+        <p>
+          Parlez-nous de votre projet. Nous vous aiderons à trouver
+          la meilleure direction créative.
+        </p>
+
+        <div class="cta-actions">
+
+          <a href="contact.html" class="button button-primary">
+            Démarrer un projet ↗
+          </a>
+
+          <a
+            href="https://wa.me/"
+            class="button button-secondary"
+            target="_blank"
+            rel="noopener"
+          >
+            WhatsApp
+          </a>
+
+        </div>
+
+      </div>
+
+    </section>
+
+  </main>
+
+
+  <!-- ================= FOOTER ================= -->
+
+  <footer class="footer">
+
+    <div class="footer-top">
+
+      <div class="footer-brand">
+
+        <a href="index.html" class="logo">
+          <span class="logo-mark">E</span>
+          <span>ExoVisions</span>
+        </a>
+
+        <p>
+          Design graphique, branding et direction artistique
+          pour des marques qui veulent aller plus loin.
+        </p>
+
+      </div>
+
+
+      <div class="footer-column">
+
+        <h4>Navigation</h4>
+
+        <a href="#accueil">Accueil</a>
+        <a href="#services">Services</a>
+        <a href="#portfolio">Portfolio</a>
+        <a href="#apropos">À propos</a>
+
+      </div>
+
+
+      <div class="footer-column">
+
+        <h4>Projet</h4>
+
+        <a href="contact.html">Demander un devis</a>
+        <a href="portfolio.html">Nos réalisations</a>
+        <a href="cases.html">Études de cas</a>
+
+      </div>
+
+
+      <div class="footer-column">
+
+        <h4>Contact</h4>
+
+        <a href="contact.html">Nous contacter</a>
+        <a href="https://wa.me/" target="_blank">WhatsApp</a>
+
+      </div>
+
+    </div>
+
+
+    <div class="footer-bottom">
+
+      <span>
+        © 2026 ExoVisions. Tous droits réservés.
+      </span>
+
+      <div>
+        <a href="privacy.html">Confidentialité</a>
+        <a href="terms.html">Conditions</a>
+      </div>
+
+    </div>
+
+  </footer>
+
+</div>
+
+
+<div class="toast" id="toast"></div>
+
+<script src="app.js"></script>
+
+</body>
 </html>
