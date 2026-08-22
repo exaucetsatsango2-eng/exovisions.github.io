@@ -1,0 +1,702 @@
+Tu es un développeur Full-Stack senior spécialisé en sites vitrines modernes pour designers graphiques, UX/UI, JavaScript, HTML5, CSS3 et GitHub Pages.
+
+TA MISSION :
+Refais et professionnalise entièrement mon site web ExoVisions_win en utilisant UNIQUEMENT :
+- HTML5
+- CSS3
+- JavaScript vanilla
+- éventuellement des bibliothèques CDN légères si réellement nécessaires
+- GitHub Pages comme hébergement
+
+IMPORTANT :
+NE PAS utiliser :
+- Supabase
+- Firebase
+- MySQL
+- PostgreSQL
+- MongoDB
+- PHP
+- Node.js côté serveur
+- API backend
+- système d'authentification serveur
+- base de données externe.
+
+Tout doit fonctionner directement depuis GitHub Pages.
+
+==================================================
+IDENTITÉ DU PROJET
+==================================================
+
+Nom de marque :
+ExoVisions_win
+
+Activité :
+Designer graphique / Création visuelle / Branding / Communication visuelle.
+
+Localisation :
+Butembo, République démocratique du Congo.
+
+Email professionnel :
+exovisionswin@gmail.com
+
+Téléphone :
++243 995 800 142
+
+WhatsApp :
++243 995 800 142
+
+Le site doit présenter ExoVisions_win comme un studio professionnel de design graphique.
+
+==================================================
+OBJECTIF
+==================================================
+
+Créer un site extrêmement fluide, moderne, professionnel et responsive qui donne immédiatement une impression de studio créatif haut de gamme.
+
+Le site doit être optimisé pour :
+- téléphone Android
+- ordinateur
+- tablette
+- connexion internet parfois lente
+- GitHub Pages
+
+Le design doit être :
+- moderne
+- élégant
+- minimaliste
+- créatif
+- premium
+- rapide
+- accessible
+- professionnel
+
+Éviter les effets excessifs.
+Les animations doivent être fluides et légères.
+
+==================================================
+STRUCTURE DU SITE
+==================================================
+
+Créer les pages suivantes :
+
+1. index.html
+2. services.html
+3. portfolio.html
+4. about.html
+5. contact.html
+
+Créer également :
+
+6. admin.html
+
+Mais ATTENTION :
+admin.html ne doit PAS être un véritable système d'administration sécurisé.
+
+Il doit être présenté comme :
+"Gestion locale du contenu"
+
+Il servira uniquement à aider le propriétaire à générer/copier les données à placer dans les fichiers JavaScript.
+
+==================================================
+ACCUEIL
+==================================================
+
+Créer une Hero section très professionnelle :
+
+"Transformons vos idées en identités visuelles mémorables."
+
+Sous-titre :
+
+"ExoVisions_win accompagne les marques, entreprises et projets dans la création d'une identité visuelle forte, moderne et cohérente."
+
+Boutons :
+
+"Voir mes réalisations"
+
+"Parler de mon projet"
+
+Le deuxième bouton doit ouvrir WhatsApp :
+
+https://wa.me/243995800142
+
+Ajouter une présentation courte :
+
+"Designer graphique basé à Butembo, je conçois des identités visuelles, logos et supports de communication pensés pour donner de la valeur à chaque marque."
+
+==================================================
+SERVICES
+==================================================
+
+Créer des cartes professionnelles pour :
+
+1. Création de logo
+2. Identité visuelle
+3. Charte graphique
+4. Branding
+5. Affiches publicitaires
+6. Flyers
+7. Publications réseaux sociaux
+8. Cartes de visite
+9. Packaging
+10. Supports événementiels
+11. Retouche photo
+12. Direction artistique
+
+Chaque service doit avoir :
+- icône
+- titre
+- description
+- bouton "Demander un devis"
+
+Le bouton doit ouvrir WhatsApp avec un message automatiquement prérempli.
+
+Exemple :
+
+https://wa.me/243995800142?text=Bonjour%20ExoVisions_win,%20je%20souhaite%20un%20devis%20pour...
+
+==================================================
+PORTFOLIO
+==================================================
+
+Le portfolio doit être entièrement contrôlé par un fichier JavaScript local.
+
+Créer :
+
+data/projects.js
+
+Structure :
+
+const projects = [
+    {
+        id: 1,
+        title: "Nom du projet",
+        category: "Branding",
+        description: "Description du projet",
+        image: "assets/projects/projet-01.jpg",
+        client: "Nom du client",
+        year: "2026",
+        featured: true
+    }
+];
+
+Le site doit automatiquement afficher les projets à partir de ce tableau.
+
+Créer :
+- grille responsive
+- filtres par catégorie
+- recherche
+- aperçu détaillé
+- lightbox
+- navigation précédent/suivant
+- lazy loading des images
+
+Catégories :
+- Logos
+- Branding
+- Affiches
+- Réseaux sociaux
+- Print
+- Retouche photo
+- Autres
+
+IMPORTANT :
+
+Pour ajouter une nouvelle réalisation, le propriétaire doit seulement :
+1. mettre l'image dans assets/projects/
+2. ajouter un objet dans data/projects.js.
+
+Aucune base de données ne doit être nécessaire.
+
+==================================================
+GESTION DES IMAGES
+==================================================
+
+Toutes les images doivent être stockées dans GitHub.
+
+Structure :
+
+assets/
+    images/
+    projects/
+    logos/
+    services/
+    profile/
+
+Utiliser des chemins relatifs.
+
+Exemple :
+
+assets/projects/logo-client-01.webp
+
+Le site doit supporter :
+- JPG
+- JPEG
+- PNG
+- WEBP
+- SVG
+
+Utiliser WEBP lorsque possible.
+
+==================================================
+ADMIN LOCAL
+==================================================
+
+Créer admin.html.
+
+Ce n'est PAS une interface sécurisée.
+
+Elle doit permettre au propriétaire de :
+
+- ajouter un projet
+- générer automatiquement le bloc JavaScript correspondant
+- copier le code
+- prévisualiser une image
+- choisir une catégorie
+- définir le client
+- définir l'année
+- définir featured
+- générer un lien WhatsApp
+- générer des textes promotionnels
+
+Créer une interface :
+
+"Gestion du portfolio"
+
+Champs :
+
+Nom du projet
+Catégorie
+Description
+Client
+Année
+Nom du fichier image
+Projet mis en avant : Oui/Non
+
+Bouton :
+
+"Générer le code"
+
+Afficher ensuite :
+
+const project = {
+   ...
+};
+
+Ajouter :
+
+"Copier le code"
+
+Le propriétaire pourra ensuite coller ce code manuellement dans data/projects.js.
+
+NE JAMAIS donner l'impression que admin.html est sécurisé.
+
+Afficher clairement :
+
+"Cette interface fonctionne localement. Les modifications doivent être enregistrées manuellement dans les fichiers du projet GitHub."
+
+==================================================
+CONTACT
+==================================================
+
+Créer une page contact professionnelle.
+
+Afficher :
+
+ExoVisions_win
+Butembo, RDC
+
+Email :
+exovisionswin@gmail.com
+
+Téléphone :
++243 995 800 142
+
+WhatsApp :
++243 995 800 142
+
+Créer les boutons :
+
+"Envoyer un email"
+
+mailto:exovisionswin@gmail.com
+
+"WhatsApp"
+
+https://wa.me/243995800142
+
+"Appeler"
+
+tel:+243995800142
+
+==================================================
+FORMULAIRE
+==================================================
+
+Puisqu'il n'y a PAS de backend :
+
+NE PAS créer de faux formulaire qui prétend enregistrer les données.
+
+Le formulaire doit générer un message WhatsApp.
+
+Champs :
+
+Nom
+Téléphone
+Service
+Budget
+Description du projet
+
+Bouton :
+
+"Envoyer ma demande sur WhatsApp"
+
+JavaScript doit construire automatiquement le message :
+
+Bonjour ExoVisions_win,
+
+Je souhaite demander un devis.
+
+Nom :
+Téléphone :
+Service :
+Budget :
+Projet :
+
+Puis ouvrir :
+
+https://wa.me/243995800142?text=...
+
+Ajouter également une alternative :
+
+"Envoyer par email"
+
+qui ouvre mailto:exovisionswin@gmail.com avec sujet et message préremplis.
+
+==================================================
+ABOUT
+==================================================
+
+Créer une section :
+
+"À propos d'ExoVisions_win"
+
+Texte professionnel :
+
+"ExoVisions_win est une identité créative dédiée à la conception graphique, au branding et à la communication visuelle. Basé à Butembo, j'accompagne les entrepreneurs, entreprises, organisations et projets dans la création d'une image professionnelle, cohérente et mémorable."
+
+Ne pas inventer de diplômes, entreprises clientes ou récompenses.
+
+==================================================
+PROCESSUS
+==================================================
+
+Créer une section :
+
+01 — Discussion
+02 — Analyse
+03 — Conception
+04 — Présentation
+05 — Corrections
+06 — Livraison
+
+Présenter cela sous forme de timeline élégante.
+
+==================================================
+AVIS
+==================================================
+
+NE PAS inventer de faux témoignages.
+
+Créer plutôt une section :
+
+"Votre projet pourrait être le prochain."
+
+Avec bouton WhatsApp.
+
+==================================================
+FOOTER
+==================================================
+
+Afficher :
+
+ExoVisions_win
+
+Designer graphique basé à Butembo, RDC.
+
+Email :
+exovisionswin@gmail.com
+
+WhatsApp :
++243 995 800 142
+
+Liens :
+Accueil
+Services
+Portfolio
+À propos
+Contact
+
+Ajouter :
+
+© 2026 ExoVisions_win — Tous droits réservés.
+
+==================================================
+NAVIGATION
+==================================================
+
+Desktop :
+logo à gauche
+menu au centre/droite
+bouton "Démarrer un projet"
+
+Mobile :
+menu hamburger
+animation fluide
+fermeture automatique après clic
+
+Navigation sticky.
+
+Ajouter un bouton :
+"Retour en haut"
+
+==================================================
+THÈME
+==================================================
+
+Ajouter :
+- mode sombre
+- mode clair
+
+Sauvegarder le choix avec localStorage.
+
+==================================================
+ANIMATIONS
+==================================================
+
+Créer des animations très légères :
+
+- apparition au scroll
+- hover cartes
+- hover boutons
+- transition navigation
+- apparition portfolio
+- lightbox fluide
+
+Respecter :
+
+@media (prefers-reduced-motion: reduce)
+
+et désactiver les animations pour les utilisateurs qui préfèrent réduire les mouvements.
+
+==================================================
+PERFORMANCE
+==================================================
+
+Objectif :
+site très rapide.
+
+Utiliser :
+- lazy loading
+- images optimisées
+- CSS organisé
+- JavaScript modulaire
+- pas de framework lourd
+- pas de dépendances inutiles
+
+Ne jamais bloquer le chargement de la page avec JavaScript.
+
+==================================================
+SEO
+==================================================
+
+Chaque page doit avoir :
+
+<title>
+<meta name="description">
+<meta name="viewport">
+
+Ajouter Open Graph :
+
+og:title
+og:description
+og:image
+og:url
+
+Créer :
+robots.txt
+sitemap.xml
+
+Préparer les données structurées JSON-LD de type LocalBusiness / ProfessionalService sans inventer d'informations.
+
+Nom :
+ExoVisions_win
+
+Localisation :
+Butembo, RDC
+
+Email :
+exovisionswin@gmail.com
+
+Téléphone :
++243995800142
+
+==================================================
+ACCESSIBILITÉ
+==================================================
+
+Utiliser :
+- HTML sémantique
+- alt pour images
+- labels pour formulaires
+- contraste suffisant
+- navigation clavier
+- aria-label lorsque nécessaire
+- focus visible
+
+==================================================
+ARCHITECTURE DES FICHIERS
+==================================================
+
+Le résultat final doit avoir exactement une structure proche de :
+
+/
+├── index.html
+├── services.html
+├── portfolio.html
+├── about.html
+├── contact.html
+├── admin.html
+├── robots.txt
+├── sitemap.xml
+│
+├── assets/
+│   ├── images/
+│   ├── projects/
+│   ├── logos/
+│   └── profile/
+│
+├── css/
+│   └── main.css
+│
+└── js/
+    ├── app.js
+    ├── portfolio.js
+    ├── contact.js
+    └── admin.js
+│
+└── data/
+    └── projects.js
+
+==================================================
+IMPORTANT POUR GITHUB
+==================================================
+
+Le site doit fonctionner directement après :
+
+git push
+
+sur GitHub Pages.
+
+Aucune configuration serveur.
+
+Aucune variable secrète.
+
+Aucune clé API.
+
+Aucune base de données.
+
+Aucune authentification.
+
+Tout le contenu modifiable doit être dans :
+
+data/projects.js
+
+et dans les fichiers HTML/CSS/JS.
+
+==================================================
+RÈGLE ABSOLUE
+==================================================
+
+NE crée PAS une simple maquette.
+
+Crée un véritable site fonctionnel.
+
+Tous les boutons doivent fonctionner.
+
+Tous les liens doivent fonctionner.
+
+Les filtres du portfolio doivent fonctionner.
+
+La lightbox doit fonctionner.
+
+Le formulaire WhatsApp doit fonctionner.
+
+Le formulaire email doit fonctionner.
+
+Le mode sombre doit fonctionner.
+
+Le menu mobile doit fonctionner.
+
+Le système de projets JavaScript doit fonctionner.
+
+Le site doit être compatible GitHub Pages.
+
+==================================================
+LIVRABLE
+==================================================
+
+Donne-moi le projet COMPLET.
+
+Pour chaque fichier, donne son contenu intégral.
+
+Ne me donne pas des extraits.
+
+Ne me dis pas "ajoutez ceci à votre fichier".
+
+Donne directement :
+
+FILE: index.html
+[contenu complet]
+
+FILE: services.html
+[contenu complet]
+
+FILE: portfolio.html
+[contenu complet]
+
+FILE: about.html
+[contenu complet]
+
+FILE: contact.html
+[contenu complet]
+
+FILE: admin.html
+[contenu complet]
+
+FILE: css/main.css
+[contenu complet]
+
+FILE: js/app.js
+[contenu complet]
+
+FILE: js/portfolio.js
+[contenu complet]
+
+FILE: js/contact.js
+[contenu complet]
+
+FILE: js/admin.js
+[contenu complet]
+
+FILE: data/projects.js
+[contenu complet]
+
+FILE: robots.txt
+[contenu complet]
+
+FILE: sitemap.xml
+[contenu complet]
+
+Ne laisse aucun fichier essentiel en "à compléter".
+
+Le résultat doit être immédiatement copiable dans un dépôt GitHub Pages.
