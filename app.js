@@ -1,13 +1,19 @@
 "use strict";
 
-/* =========================================================
-   EXOVISIONS — V2 FRONTEND
-   Navigation, thème, animations et UX
-========================================================= */
+/*
+=========================================================
+EXOVISIONS — FULLSTACK FRONTEND
+Supabase + UX + Navigation
+=========================================================
+*/
 
 const App = {
 
-  init() {
+  supabase: null,
+
+  async init() {
+
+    this.initSupabase();
 
     this.theme();
     this.navigation();
@@ -16,14 +22,42 @@ const App = {
     this.reveal();
     this.links();
 
+    await this.loadProjects();
+    await this.bindForms();
+
   },
 
 
-  /* ================= THEME ================= */
+  /* =====================================================
+     SUPABASE
+  ===================================================== */
+
+  initSupabase() {
+
+    if (
+      typeof supabase === "undefined" ||
+      !window.EXOVISIONS_SUPABASE
+    ) {
+      console.warn("Supabase non configuré.");
+      return;
+    }
+
+    this.supabase = supabase.createClient(
+      window.EXOVISIONS_SUPABASE.url,
+      window.EXOVISIONS_SUPABASE.key
+    );
+
+  },
+
+
+  /* =====================================================
+     THEME
+  ===================================================== */
 
   theme() {
 
-    const button = document.getElementById("themeToggle");
+    const button =
+      document.getElementById("themeToggle");
 
     if (!button) return;
 
@@ -31,8 +65,11 @@ const App = {
       localStorage.getItem("exovisions-theme");
 
     if (savedTheme === "light") {
+
       document.body.classList.add("light");
+
       button.textContent = "☾";
+
     }
 
     button.addEventListener("click", () => {
@@ -55,7 +92,9 @@ const App = {
   },
 
 
-  /* ================= MOBILE NAV ================= */
+  /* =====================================================
+     MOBILE NAV
+  ===================================================== */
 
   navigation() {
 
@@ -73,7 +112,6 @@ const App = {
 
     });
 
-
     navigation
       .querySelectorAll("a")
       .forEach(link => {
@@ -89,7 +127,9 @@ const App = {
   },
 
 
-  /* ================= HEADER ================= */
+  /* =====================================================
+     HEADER
+  ===================================================== */
 
   scrollHeader() {
 
@@ -100,16 +140,10 @@ const App = {
 
     const update = () => {
 
-      if (window.scrollY > 30) {
-
-        header.style.boxShadow =
-          "0 10px 40px rgba(0,0,0,.15)";
-
-      } else {
-
-        header.style.boxShadow = "none";
-
-      }
+      header.style.boxShadow =
+        window.scrollY > 30
+          ? "0 10px 40px rgba(0,0,0,.15)"
+          : "none";
 
     };
 
@@ -124,7 +158,9 @@ const App = {
   },
 
 
-  /* ================= ACTIVE NAV ================= */
+  /* =====================================================
+     ACTIVE NAVIGATION
+  ===================================================== */
 
   activeNavigation() {
 
@@ -135,7 +171,6 @@ const App = {
       document.querySelectorAll(".nav-link");
 
     if (!sections.length || !links.length) return;
-
 
     const observer =
       new IntersectionObserver(
@@ -163,11 +198,8 @@ const App = {
           });
 
         },
-        {
-          threshold: .35
-        }
+        { threshold: .35 }
       );
-
 
     sections.forEach(section => {
 
@@ -178,7 +210,9 @@ const App = {
   },
 
 
-  /* ================= REVEAL ================= */
+  /* =====================================================
+     REVEAL
+  ===================================================== */
 
   reveal() {
 
@@ -188,7 +222,6 @@ const App = {
       );
 
     if (!elements.length) return;
-
 
     const observer =
       new IntersectionObserver(
@@ -211,7 +244,8 @@ const App = {
               ],
               {
                 duration: 650,
-                easing: "cubic-bezier(.2,.8,.2,1)",
+                easing:
+                  "cubic-bezier(.2,.8,.2,1)",
                 fill: "forwards"
               }
             );
@@ -221,11 +255,8 @@ const App = {
           });
 
         },
-        {
-          threshold: .12
-        }
+        { threshold: .12 }
       );
-
 
     elements.forEach(element => {
 
@@ -238,7 +269,272 @@ const App = {
   },
 
 
-  /* ================= SMOOTH LINKS ================= */
+  /* =====================================================
+     PROJECTS
+  ===================================================== */
+
+  async loadProjects() {
+
+    if (!this.supabase) return;
+
+    const container =
+      document.querySelector("[data-projects]");
+
+    if (!container) return;
+
+    const {
+      data,
+      error
+    } = await this.supabase
+      .from("projets")
+      .select("*")
+      .eq("published", true)
+      .order("created_at", {
+        ascending: false
+      });
+
+    if (error) {
+
+      console.error(
+        "Erreur projets:",
+        error
+      );
+
+      return;
+
+    }
+
+    if (!data || !data.length) return;
+
+    container.innerHTML =
+      data.map(project => `
+
+        <article
+          class="project"
+          data-project-id="${this.escape(project.id)}"
+        >
+
+          ${
+            project.image_url
+              ? `
+                <img
+                  src="${this.escape(project.image_url)}"
+                  alt="${this.escape(project.title || "Projet ExoVisions")}"
+                  loading="lazy"
+                >
+              `
+              : ""
+          }
+
+          <div class="project-content">
+
+            <small>
+              ${this.escape(project.category || "")}
+            </small>
+
+            <h3>
+              ${this.escape(project.title || "")}
+            </h3>
+
+            ${
+              project.description
+                ? `
+                  <p>
+                    ${this.escape(project.description)}
+                  </p>
+                `
+                : ""
+            }
+
+          </div>
+
+        </article>
+
+      `).join("");
+
+  },
+
+
+  /* =====================================================
+     CONTACT / COMMANDES
+  ===================================================== */
+
+  async bindForms() {
+
+    if (!this.supabase) return;
+
+    const forms =
+      document.querySelectorAll(
+        "form[data-supabase]"
+      );
+
+    forms.forEach(form => {
+
+      form.addEventListener(
+        "submit",
+        async event => {
+
+          event.preventDefault();
+
+          const table =
+            form.dataset.supabase;
+
+          if (
+            !["contacts", "commandes"]
+              .includes(table)
+          ) {
+
+            return;
+
+          }
+
+          const formData =
+            new FormData(form);
+
+          const payload = {};
+
+          formData.forEach(
+            (value, key) => {
+
+              if (value !== "") {
+
+                payload[key] = value;
+
+              }
+
+            }
+          );
+
+          const button =
+            form.querySelector(
+              "button[type='submit']"
+            );
+
+          if (button) {
+
+            button.disabled = true;
+
+            button.dataset.originalText =
+              button.textContent;
+
+            button.textContent =
+              "Envoi...";
+
+          }
+
+          const {
+            error
+          } = await this.supabase
+            .from(table)
+            .insert(payload);
+
+          if (button) {
+
+            button.disabled = false;
+
+            button.textContent =
+              button.dataset.originalText;
+
+          }
+
+          if (error) {
+
+            console.error(error);
+
+            this.notify(
+              "Une erreur est survenue. Réessayez."
+            );
+
+            return;
+
+          }
+
+          form.reset();
+
+          this.notify(
+            "Votre demande a bien été envoyée."
+          );
+
+        }
+      );
+
+    });
+
+  },
+
+
+  /* =====================================================
+     TOAST
+  ===================================================== */
+
+  notify(message) {
+
+    let toast =
+      document.getElementById(
+        "exovisions-toast"
+      );
+
+    if (!toast) {
+
+      toast =
+        document.createElement("div");
+
+      toast.id =
+        "exovisions-toast";
+
+      toast.style.position = "fixed";
+      toast.style.bottom = "20px";
+      toast.style.right = "20px";
+      toast.style.zIndex = "99999";
+      toast.style.padding = "14px 18px";
+      toast.style.borderRadius = "12px";
+      toast.style.background = "#111";
+      toast.style.color = "#fff";
+      toast.style.fontSize = "13px";
+      toast.style.boxShadow =
+        "0 15px 40px rgba(0,0,0,.25)";
+
+      document.body.appendChild(toast);
+
+    }
+
+    toast.textContent = message;
+
+    toast.style.opacity = "1";
+
+    clearTimeout(
+      this.toastTimer
+    );
+
+    this.toastTimer =
+      setTimeout(() => {
+
+        toast.style.opacity = "0";
+
+      }, 3500);
+
+  },
+
+
+  /* =====================================================
+     ESCAPE HTML
+  ===================================================== */
+
+  escape(value) {
+
+    return String(value ?? "")
+      .replace(/&/g, "&amp;")
+      .replace(/</g, "&lt;")
+      .replace(/>/g, "&gt;")
+      .replace(/"/g, "&quot;")
+      .replace(/'/g, "&#039;");
+
+  },
+
+
+  /* =====================================================
+     SMOOTH LINKS
+  ===================================================== */
 
   links() {
 
@@ -246,26 +542,29 @@ const App = {
       .querySelectorAll('a[href^="#"]')
       .forEach(link => {
 
-        link.addEventListener("click", event => {
+        link.addEventListener(
+          "click",
+          event => {
 
-          const id =
-            link.getAttribute("href");
+            const id =
+              link.getAttribute("href");
 
-          if (!id || id === "#") return;
+            if (!id || id === "#") return;
 
-          const target =
-            document.querySelector(id);
+            const target =
+              document.querySelector(id);
 
-          if (!target) return;
+            if (!target) return;
 
-          event.preventDefault();
+            event.preventDefault();
 
-          target.scrollIntoView({
-            behavior: "smooth",
-            block: "start"
-          });
+            target.scrollIntoView({
+              behavior: "smooth",
+              block: "start"
+            });
 
-        });
+          }
+        );
 
       });
 
