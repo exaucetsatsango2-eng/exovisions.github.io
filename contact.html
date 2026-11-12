@@ -1,0 +1,103 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Demander un devis — ExoVisions_Win</title>
+  <meta name="description" content="Décrivez votre projet de logo, charte graphique, affiche ou visuel : ExoVisions_Win vous répond avec une proposition.">
+  <meta name="theme-color" content="#1C202B">
+  <link rel="icon" href="assets/logo.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+  <script>try{document.documentElement.dataset.theme=localStorage.getItem('exo-theme')||'dark'}catch(e){document.documentElement.dataset.theme='dark'}</script>
+</head>
+<body>
+  <a class="skip" href="#contenu">Aller au contenu</a>
+
+  <header class="site-header">
+    <div class="wrap bar">
+      <a class="brand" href="index.html"><img src="assets/logo.svg" alt="" width="34" height="35"><span>ExoVisions_Win</span></a>
+      <nav id="nav" class="nav" aria-label="Navigation principale">
+        <a href="index.html">Accueil</a>
+        <a href="services.html">Services</a>
+        <a href="portfolio.html">Réalisations</a>
+        <a href="about.html">À propos</a>
+        <a href="contact.html" aria-current="page">Contact</a>
+        <a class="btn btn-small" href="contact.html">Demander un devis</a>
+      </nav>
+      <button class="theme-btn" type="button" aria-label="Changer de thème clair ou sombre">
+        <svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><circle cx="12" cy="12" r="9" fill="none" stroke="currentColor" stroke-width="2"/><path d="M12 3a9 9 0 0 1 0 18z" fill="currentColor"/></svg>
+      </button>
+      <button class="menu-btn" type="button" aria-expanded="false" aria-controls="nav" aria-label="Ouvrir le menu"><span></span></button>
+    </div>
+  </header>
+
+  <main id="contenu">
+    <div class="wrap page-head">
+      <h1>Parlons de votre projet.</h1>
+      <p class="lead">Remplissez le formulaire : votre message est préparé et envoyé directement à ExoVisions_Win.</p>
+    </div>
+
+    <section class="section">
+      <div class="wrap contact-grid">
+        <form id="contact-form" class="form" novalidate>
+          <div class="field">
+            <label for="nom">Votre nom</label>
+            <input id="nom" name="nom" type="text" autocomplete="name" required>
+          </div>
+          <div class="field">
+            <label for="contact">Votre numéro WhatsApp ou e-mail</label>
+            <input id="contact" name="contact" type="text" autocomplete="email" required>
+          </div>
+          <div class="field">
+            <label for="offre">Service souhaité</label>
+            <select id="offre" name="offre">
+              <option value="Design Simple">Design Simple — 5 $</option>
+              <option value="Design Pro">Design Pro — 10 $</option>
+              <option value="Logo Simple">Logo Simple — 10 $</option>
+              <option value="Logo Standard">Logo Standard — 15 $</option>
+              <option value="Logo Pro">Logo Pro — 25 $</option>
+              <option value="Autre demande">Autre demande</option>
+            </select>
+          </div>
+          <div class="field">
+            <label for="message">Décrivez votre projet</label>
+            <textarea id="message" name="message" required></textarea>
+          </div>
+          <button class="btn" type="submit">Envoyer ma demande</button>
+          <p id="form-status" class="status" role="status" aria-live="polite"></p>
+        </form>
+
+        <aside class="aside">
+          <h2>Pour un devis plus rapide</h2>
+          <ul>
+            <li>Indiquez votre activité et le public visé.</li>
+            <li>Précisez le support : logo, affiche, calicot, visuel réseaux.</li>
+            <li>Donnez la date souhaitée et le texte à afficher.</li>
+            <li>Ajoutez vos couleurs ou des exemples que vous aimez.</li>
+          </ul>
+          <h2>Écrire directement</h2>
+          <div class="cta-actions">
+            <a class="btn" data-whatsapp href="#">WhatsApp</a>
+            <a class="btn btn-ghost" data-email href="#">E-mail</a>
+          </div>
+        </aside>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="wrap foot">
+      <div><strong>ExoVisions_Win</strong><p>Logos, chartes graphiques, affiches et visuels pour les réseaux sociaux.</p></div>
+      <nav aria-label="Pied de page"><strong>Navigation</strong><a href="index.html">Accueil</a><a href="services.html">Services</a><a href="portfolio.html">Réalisations</a><a href="about.html">À propos</a></nav>
+      <div class="links"><strong>Contact</strong><a href="contact.html">Formulaire de devis</a><a data-whatsapp href="contact.html">WhatsApp</a><a data-email href="contact.html">E-mail</a></div>
+    </div>
+    <div class="wrap legal">© <span data-year>2026</span> ExoVisions_Win. Tous droits réservés.</div>
+  </footer>
+
+  <script src="js/config.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,97 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Réalisations — ExoVisions_Win</title>
+  <meta name="description" content="Logos, chartes graphiques, affiches et visuels pour les réseaux sociaux réalisés par ExoVisions_Win.">
+  <meta name="theme-color" content="#1C202B">
+  <link rel="icon" href="assets/logo.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+  <script>try{document.documentElement.dataset.theme=localStorage.getItem('exo-theme')||'dark'}catch(e){document.documentElement.dataset.theme='dark'}</script>
+</head>
+<body>
+  <a class="skip" href="#contenu">Aller au contenu</a>
+
+  <header class="site-header">
+    <div class="wrap bar">
+      <a class="brand" href="index.html"><img src="assets/logo.svg" alt="" width="34" height="35"><span>ExoVisions_Win</span></a>
+      <nav id="nav" class="nav" aria-label="Navigation principale">
+        <a href="index.html">Accueil</a>
+        <a href="services.html">Services</a>
+        <a href="portfolio.html" aria-current="page">Réalisations</a>
+        <a href="about.html">À propos</a>
+        <a href="contact.html">Contact</a>
+        <a class="btn btn-small" href="contact.html">Demander un devis</a>
+      </nav>
+      <button class="theme-btn" type="button" aria-label="Changer de thème clair ou sombre">
+        <svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><circle cx="12" cy="12" r="9" fill="none" stroke="currentColor" stroke-width="2"/><path d="M12 3a9 9 0 0 1 0 18z" fill="currentColor"/></svg>
+      </button>
+      <button class="menu-btn" type="button" aria-expanded="false" aria-controls="nav" aria-label="Ouvrir le menu"><span></span></button>
+    </div>
+  </header>
+
+  <main id="contenu">
+    <div class="wrap page-head">
+      <h1>Des idées transformées en images.</h1>
+      <p class="lead">Une sélection de créations réalisées avec stratégie, créativité et précision graphique. Touchez une image pour l’agrandir.</p>
+    </div>
+
+    <section class="section" aria-label="Liste des réalisations">
+      <div class="wrap">
+        <div id="filters" class="filters" role="group" aria-label="Filtrer par catégorie"></div>
+
+        <!-- ============================================================
+             EMPLACEMENT DE TES RÉALISATIONS
+             Les images se déclarent dans  js/portfolio-data.js
+             (champ src : "assets/portfolio/ton-image.jpg").
+             Cette liste se remplit toute seule.
+             ============================================================ -->
+        <ul class="tiles" data-portfolio="all"></ul>
+      </div>
+    </section>
+
+    <section class="cta" aria-labelledby="t-cta">
+      <div class="wrap">
+        <div>
+          <h2 id="t-cta">Une réalisation vous inspire ?</h2>
+          <p>Décrivez votre projet, nous vous répondons avec une proposition.</p>
+        </div>
+        <div class="cta-actions">
+          <a class="btn" href="contact.html">Demander un devis</a>
+          <a class="btn btn-ghost" href="services.html#tarif">Voir le tarif 2026</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="wrap foot">
+      <div><strong>ExoVisions_Win</strong><p>Logos, chartes graphiques, affiches et visuels pour les réseaux sociaux.</p></div>
+      <nav aria-label="Pied de page"><strong>Navigation</strong><a href="index.html">Accueil</a><a href="services.html">Services</a><a href="portfolio.html">Réalisations</a><a href="about.html">À propos</a></nav>
+      <div class="links"><strong>Contact</strong><a href="contact.html">Formulaire de devis</a><a data-whatsapp href="contact.html">WhatsApp</a><a data-email href="contact.html">E-mail</a></div>
+    </div>
+    <div class="wrap legal">© <span data-year>2026</span> ExoVisions_Win. Tous droits réservés.</div>
+  </footer>
+
+  <dialog id="lightbox" class="lightbox" aria-label="Aperçu de la réalisation">
+    <figure>
+      <img src="" alt="">
+      <figcaption><strong class="lb-title"></strong><span class="lb-cat"></span></figcaption>
+    </figure>
+    <div class="lb-bar">
+      <button type="button" data-lb="prev">Précédent</button>
+      <button type="button" data-lb="close">Fermer</button>
+      <button type="button" data-lb="next">Suivant</button>
+    </div>
+  </dialog>
+
+  <script src="js/config.js"></script>
+  <script src="js/portfolio-data.js"></script>
+  <script src="js/portfolio.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>
