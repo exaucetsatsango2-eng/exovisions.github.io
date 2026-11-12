@@ -3,6 +3,6 @@
    email    : adresse qui recevra les demandes si WhatsApp n'est pas renseigné.
    Tant que ces champs sont vides, les boutons WhatsApp / e-mail restent cachés. */
 window.EXO_CONFIG = {
-  whatsapp: "",
-  email: ""
+  whatsapp: "243995800142",
+  email: "exovisionswin@gmail.com"
 };
