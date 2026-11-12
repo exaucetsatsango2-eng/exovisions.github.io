@@ -1,0 +1,29 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 207" role="img" aria-label="ExoVisions_Win">
+  <defs>
+    <linearGradient id="gu" x1="0" y1="0" x2="1" y2="0.4">
+      <stop offset="0" stop-color="#054268"/>
+      <stop offset="1" stop-color="#3696D3"/>
+    </linearGradient>
+    <linearGradient id="gl" x1="0" y1="0" x2="1" y2="0.6">
+      <stop offset="0" stop-color="#3696D3"/>
+      <stop offset="0.6" stop-color="#1B6A9C"/>
+      <stop offset="1" stop-color="#054268"/>
+    </linearGradient>
+    <radialGradient id="go" cx="0.4" cy="0.35" r="0.75">
+      <stop offset="0" stop-color="#F3A65C"/>
+      <stop offset="1" stop-color="#EB5D0B"/>
+    </radialGradient>
+    <mask id="cut">
+      <rect width="200" height="207" fill="#fff"/>
+      <circle cx="100" cy="103.5" r="26" fill="#000"/>
+    </mask>
+  </defs>
+  <g mask="url(#cut)">
+    <polygon fill="url(#gu)" points="0,100 100,0 130,30 61,100"/>
+    <polygon fill="url(#gu)" points="94,78 136,36 162,62 126,99"/>
+    <polygon fill="url(#gu)" points="136,100 168,68 200,100"/>
+    <polygon fill="url(#gl)" points="0,107 200,107 100,207"/>
+  </g>
+  <circle cx="100" cy="103.5" r="17" fill="url(#go)"/>
+  <ellipse cx="105" cy="97" rx="5" ry="2.6" transform="rotate(30 105 97)" fill="#fff" opacity=".9"/>
+</svg>
