@@ -1,0 +1,10 @@
+Dépose ici tes réalisations (JPG, PNG ou WebP, 1600 px de large maximum).
+
+Puis ouvre js/portfolio-data.js et écris le chemin dans le champ src, par exemple :
+  src: "assets/portfolio/logo-boulangerie.jpg"
+
+Attention : GitHub Pages distingue majuscules et minuscules.
+Évite les espaces et les accents dans les noms de fichiers.
+
+Photo de la page À propos : place-la ici sous le nom  assets/exauce.jpg
+(dossier assets, pas assets/portfolio).
