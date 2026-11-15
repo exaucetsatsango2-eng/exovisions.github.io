@@ -29,10 +29,10 @@ window.PORTFOLIO_CATEGORIES = {
 };
 
 window.PORTFOLIO = [
-  { title: "Logo — nom du client",       category: "logo",     src: "", alt: "", featured: true },
+  { title: "Logo — pro",       category: "logo",     src: "logotous.jpg", alt: "tous mes logo", featured: true },
   { title: "Charte graphique — Redes",  category: "branding", src: "logoredes.jpg", alt: "redes", featured: true },
-  { title: "Affiche — événement",        category: "affiche",  src: "", alt: "", featured: true },
-  { title: "Visuel réseaux sociaux",     category: "social",   src: "", alt: "", featured: false },
-  { title: "Calicot — client",           category: "affiche",  src: "", alt: "", featured: false },
-  { title: "Save the date — mariage",    category: "social",   src: "", alt: "", featured: false }
+  { title: "Affiche — événement",        category: "affiche",  src: "afficheactivite.jpg", alt: "event", featured: true },
+  { title: "Visuel réseaux sociaux",     category: "social",   src: "flyers.jpg", alt: "Rs", featured: false },
+  { title: "Calicot — client",           category: "affiche",  src: "affprint.jpg", alt: "print", featured: false },
+  { title: "Save the date — mariage-anniversaire",    category: "social",   src: "flyrsmr.jpg", alt: "rs", featured: false }
 ];
