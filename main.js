@@ -90,8 +90,8 @@
       const d = new FormData(form);
       const text =
         `Bonjour ExoVisions_Win,\n\nJe m'appelle ${d.get('nom')}.\n` +
-        `Offre souhaitée : ${d.get('offre')}\n\n${d.get('message')}\n\n` +
-        `Pour me répondre : ${d.get('contact')}`;
+        `J'ai besoin d'un service : ${d.get('offre')}\n\n${d.get('message')}\n\n` +
+        `Vous pouvez me répondre sue : ${d.get('contact')}`;
 
       if (wa) {
         window.open('https://wa.me/' + wa + '?text=' + encodeURIComponent(text), '_blank', 'noopener');
