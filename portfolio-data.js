@@ -30,7 +30,7 @@ window.PORTFOLIO_CATEGORIES = {
 
 window.PORTFOLIO = [
   { title: "Logo — nom du client",       category: "logo",     src: "", alt: "", featured: true },
-  { title: "Charte graphique — client",  category: "branding", src: "", alt: "", featured: true },
+  { title: "Charte graphique — Redes",  category: "branding", src: "logoredes.jpg", alt: "redes", featured: true },
   { title: "Affiche — événement",        category: "affiche",  src: "", alt: "", featured: true },
   { title: "Visuel réseaux sociaux",     category: "social",   src: "", alt: "", featured: false },
   { title: "Calicot — client",           category: "affiche",  src: "", alt: "", featured: false },
